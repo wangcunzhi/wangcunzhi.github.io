@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wangcunzhi.github.io">
-  <title>Archives: 2020 | wangcunzhi</title>
+  <title>spring(一):程序的耦合与IOC | wangcunzhi</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wangcunzhi">
-<meta property="og:url" content="https://wangcunzhi.github.io/archives/2020/index.html">
+  <meta name="description" content="spring（一）：程序的耦合与IOC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring(一):程序的耦合与IOC">
+<meta property="og:url" content="https://wangcunzhi.github.io/2020/04/06/spring-%E4%B8%80-%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%80%A6%E5%90%88%E4%B8%8EIOC/index.html">
 <meta property="og:site_name" content="wangcunzhi">
+<meta property="og:description" content="spring（一）：程序的耦合与IOC">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-06T06:55:47.000Z">
+<meta property="article:modified_time" content="2020-04-06T07:24:05.977Z">
 <meta property="article:author" content="wangcunzhi">
+<meta property="article:tag" content="-spring">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wangcunzhi" type="application/atom+xml">
@@ -161,41 +166,154 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-spring-一-程序的耦合与IOC" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/06/spring-%E4%B8%80-%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%80%A6%E5%90%88%E4%B8%8EIOC/" class="archive-article-date">
-        <time datetime="2020-04-06T06:55:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-06</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/06/spring-%E4%B8%80-%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%80%A6%E5%90%88%E4%B8%8EIOC/" target="_blank">spring(一):程序的耦合与IOC</a>
   
+    <h1 class="article-title" itemprop="name">
+      spring(一):程序的耦合与IOC
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/04/06/spring-%E4%B8%80-%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%80%A6%E5%90%88%E4%B8%8EIOC/" class="archive-article-date">
+        <time datetime="2020-04-06T06:55:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-06</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">545字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+        <h1 id="spring（一）：程序的耦合与IOC"><a href="#spring（一）：程序的耦合与IOC" class="headerlink" title="spring（一）：程序的耦合与IOC"></a>spring（一）：程序的耦合与IOC</h1><a id="more"></a>
+<h2 id="什么是Spring？"><a href="#什么是Spring？" class="headerlink" title="什么是Spring？"></a>什么是Spring？</h2><pre><code>是分层的全栈轻量级开源框架，以IOC（反转控制）和AOP(面向切面编程)为核心。</code></pre><h2 id="程序的耦合与解耦"><a href="#程序的耦合与解耦" class="headerlink" title="程序的耦合与解耦"></a>程序的耦合与解耦</h2><h3 id="耦合"><a href="#耦合" class="headerlink" title="耦合"></a>耦合</h3><pre><code>简单来说是程序间的依赖关系；
+    包括：类之间的依赖，方法间的依赖</code></pre><h3 id="解耦"><a href="#解耦" class="headerlink" title="解耦"></a>解耦</h3><pre><code>降低程序间的依赖关系 实际开发中要做到编译期间不依赖，运行时才依赖。</code></pre><h3 id="对于类之间的依赖的解决思路"><a href="#对于类之间的依赖的解决思路" class="headerlink" title="对于类之间的依赖的解决思路"></a>对于类之间的依赖的解决思路</h3><pre><code>1.使用反射来创建对象。而避免使用关键字new
+2.通过读取配置文件来获取要创建对象的全限定类名</code></pre><h3 id="利用工厂模式进行解耦，使用单例模式，提高执行效率"><a href="#利用工厂模式进行解耦，使用单例模式，提高执行效率" class="headerlink" title="利用工厂模式进行解耦，使用单例模式，提高执行效率"></a>利用工厂模式进行解耦，使用单例模式，提高执行效率</h3><pre><code>    准备：持久层与业务层相应的类，准备好一个配置文件bean.properties用来存放全限定类名
+
+    创建一个beanFactory工厂类用来实例化持久层和业务层的类。
+    /*
+        1.首先创建一个properties的类用来存放配置文件中读取到的数据
+        2.创建一个map集合作为容器用来存放实例化后的类--实现单例模式。
+        3.在static代码块中
+            &lt;1&gt;实例化propties对象
+            &lt;2&gt;通过类加载器的方式来获取字节输入流
+            &lt;3&gt;将字节输入流加载到properties对象中
+            &lt;4&gt;实例化容器，获取properties中的所有的key
+            &lt;5&gt;遍历枚举类型，然后通过每一个key实例化一个对象
+            &lt;6&gt;将key和实例化的对象存入到容器中
+            &lt;7&gt;创建一个方法，利用容器返回要创建的对象。
+    */
+    public class BeanFactory {
+        private static Properties properties;
+        private static Map&lt;String,Object&gt; objectMap;
+        static {
+            try {
+                properties=new Properties();
+                InputStream in = BeanFactory.class.getClassLoader().getResourceAsStream(&quot;bean.properties&quot;);
+                properties.load(in);
+                objectMap= new HashMap&lt;String,Object&gt;();
+                Enumeration&lt;Object&gt; keys = properties.keys();
+                while (keys.hasMoreElements()){
+                    String key = keys.nextElement().toString();
+                    String beanPath=properties.getProperty(key);
+                    Object value = Class.forName(beanPath).getDeclaredConstructor().newInstance();
+                    objectMap.put(key,value);
+                }
+            } catch (Exception e) {
+                throw new ExceptionInInitializerError();
+            }
+
+        }
+        public static Object getBean(String beanName)  {
+            return objectMap.get(beanName);
+        }
+    }
+*注意：jdk9中摒弃了Class.forName().newInstance()的方式来实例化类，
+      要采用Class.forName(beanPath).getDeclaredConstructor().newInstance();的方式</code></pre><h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2>
           
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/wechatpay.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          wangcunzhi
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://wangcunzhi.github.io/2020/04/06/spring-一-程序的耦合与IOC/" title="spring(一):程序的耦合与IOC" target="_blank">https://wangcunzhi.github.io/2020/04/06/spring-一-程序的耦合与IOC/</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -207,62 +325,120 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://wangcunzhi.github.io/2020/04/06/spring-%E4%B8%80-%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%80%A6%E5%90%88%E4%B8%8EIOC/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/05/mybatis/" class="archive-article-date">
-        <time datetime="2020-04-05T07:52:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/05/mybatis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mybatis</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/05/mybatis/" target="_blank">mybatis</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#spring（一）：程序的耦合与IOC"><span class="toc-number">1.</span> <span class="toc-text">spring（一）：程序的耦合与IOC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Spring？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是Spring？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序的耦合与解耦"><span class="toc-number">1.2.</span> <span class="toc-text">程序的耦合与解耦</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#耦合"><span class="toc-number">1.2.1.</span> <span class="toc-text">耦合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解耦"><span class="toc-number">1.2.2.</span> <span class="toc-text">解耦</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对于类之间的依赖的解决思路"><span class="toc-number">1.2.3.</span> <span class="toc-text">对于类之间的依赖的解决思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用工厂模式进行解耦，使用单例模式，提高执行效率"><span class="toc-number">1.2.4.</span> <span class="toc-text">利用工厂模式进行解耦，使用单例模式，提高执行效率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IOC"><span class="toc-number">1.3.</span> <span class="toc-text">IOC</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+        
+    </div>
+</aside>
 
-    
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -303,8 +479,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
