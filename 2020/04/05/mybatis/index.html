@@ -18,7 +18,7 @@
 <meta property="og:description" content="Mybatis使用注解开发">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-05T07:52:57.000Z">
-<meta property="article:modified_time" content="2020-04-06T07:13:46.442Z">
+<meta property="article:modified_time" content="2020-04-07T07:11:03.048Z">
 <meta property="article:author" content="wangcunzhi">
 <meta property="article:tag" content="-mybatis">
 <meta name="twitter:card" content="summary">
@@ -199,7 +199,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">676字</span>
+      <span class="post-count">1.4k字</span>
     </span>
   </span>
 
@@ -208,7 +208,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -220,9 +220,7 @@
   <div class="article-entry" itemprop="articleBody">
     
         <h1 id="Mybatis使用注解开发"><a href="#Mybatis使用注解开发" class="headerlink" title="Mybatis使用注解开发"></a>Mybatis使用注解开发</h1><a id="more"></a>
-<h2 id="对于单表的CRUD操作"><a href="#对于单表的CRUD操作" class="headerlink" title="对于单表的CRUD操作"></a>对于单表的CRUD操作</h2><pre><code>1.建立一个maven工程，导入相关jar包；
-2.使用xml文件初始化Mybatis的Configuration
-    需要导入头信息
+<h2 id="对于单表的CRUD操作"><a href="#对于单表的CRUD操作" class="headerlink" title="对于单表的CRUD操作"></a>对于单表的CRUD操作</h2><h3 id="建立一个maven工程，导入相关jar包；"><a href="#建立一个maven工程，导入相关jar包；" class="headerlink" title="建立一个maven工程，导入相关jar包；"></a>建立一个maven工程，导入相关jar包；</h3><h3 id="使用xml文件初始化Mybatis的Configuration"><a href="#使用xml文件初始化Mybatis的Configuration" class="headerlink" title="使用xml文件初始化Mybatis的Configuration"></a>使用xml文件初始化Mybatis的Configuration</h3><pre><code>    需要导入头信息
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
     &lt;!DOCTYPE configuration
             PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
@@ -257,23 +255,45 @@
         &lt;!--            通过package方式引入，引入该包下的全部文件--&gt;
             &lt;package name=&quot;com.wang.dao&quot;/&gt;
         &lt;/mappers&gt;
-    &lt;/configuration&gt;
-3.根据数据库中的表创建相应的javabean
-    创建javabean时分为两种情况
-        表中的列名与实体类中的属性名相同（常用方式）对于封装数据时不产生影响。
-        表中的列名与实体类中的属性名不行同，封装数据时会导致数据封装不成功，就要采用@results注解来配置数据的封装位置。
-4.在dao层创建相应的dao
-    假设实体类为User，包含userId，userName,userPassword属性，与数据库中的user表列名不相同。（javabean中所定义的属性不是成员变量，而是成员变量相应的getter和setter方法名去掉get或set后的字符串，然后把首字母变为小写）
-    相应的dao实现为 IUserDao
-        以查询所有方法为例：其中@result注解中的property对应的是实体类的属性名，cloumn对应的是数据中的类名，若id设为true，表示当前列是索引列。
-             @Results( id = &quot;userMap&quot;,value = {
-                    @Result(id = true ,property = &quot;userId&quot;,column = &quot;id&quot;),
-                    @Result(property = &quot;userName&quot;,column = &quot;username&quot;),
-                    @Result(property = &quot;userPassword&quot;,column = &quot;password&quot;)
-            })
-            @Select(&quot;select * from user&quot;)
-            List&lt;User&gt; findAll();
-5.对于crud操作，假设列名与属性名相同。</code></pre>
+    &lt;/configuration&gt;</code></pre><h3 id="根据数据库中的表创建相应的javabean"><a href="#根据数据库中的表创建相应的javabean" class="headerlink" title="根据数据库中的表创建相应的javabean"></a>根据数据库中的表创建相应的javabean</h3><pre><code>创建javabean时分为两种情况
+    表中的列名与实体类中的属性名相同（常用方式）对于封装数据时不产生影响。
+    表中的列名与实体类中的属性名不行同，封装数据时会导致数据封装不成功，就要采用@results注解来配置数据的封装位置。</code></pre><h3 id="在dao层创建相应的dao"><a href="#在dao层创建相应的dao" class="headerlink" title="在dao层创建相应的dao"></a>在dao层创建相应的dao</h3><pre><code>假设实体类为User，包含userId，userName,userPassword属性，与数据库中的user表列名不相同。（javabean中所定义的属性不是成员变量，而是成员变量相应的getter和setter方法名去掉get或set后的字符串，然后把首字母变为小写）
+相应的dao实现为 IUserDao
+    以查询所有方法为例：其中@result注解中的property对应的是实体类的属性名，cloumn对应的是数据中的类名，若id设为true，表示当前列是索引列。
+         @Results( id = &quot;userMap&quot;,value = {
+                @Result(id = true ,property = &quot;userId&quot;,column = &quot;id&quot;),
+                @Result(property = &quot;userName&quot;,column = &quot;username&quot;),
+                @Result(property = &quot;userPassword&quot;,column = &quot;password&quot;)
+        })
+        @Select(&quot;select * from user&quot;)
+        List&lt;User&gt; findAll();</code></pre><h3 id="对于单表crud其他操作，假设列名与属性名相同。"><a href="#对于单表crud其他操作，假设列名与属性名相同。" class="headerlink" title="对于单表crud其他操作，假设列名与属性名相同。"></a>对于单表crud其他操作，假设列名与属性名相同。</h3><pre><code>只需要在接口的方法中添加不同的注解即可。@Selecst(),@Delete(),@Insert,@Update()
+在括号中填入相应的sql语句
+例：
+    @Select(&quot;select * from user where id=#{id}&quot;)</code></pre><h2 id="对于多表的CRUD操作"><a href="#对于多表的CRUD操作" class="headerlink" title="对于多表的CRUD操作"></a>对于多表的CRUD操作</h2><h3 id="对于多表的操作需要根据表与表之间的关系来进行"><a href="#对于多表的操作需要根据表与表之间的关系来进行" class="headerlink" title="对于多表的操作需要根据表与表之间的关系来进行"></a>对于多表的操作需要根据表与表之间的关系来进行</h3><h4 id="一对一："><a href="#一对一：" class="headerlink" title="一对一："></a>一对一：</h4><pre><code>在数据库中建立外键体现一对一关系
+在实体类中创建一个对象表明是一对一关系；
+例如：身份证和人之间的关系
+        在定义人这个类时需要添加一个身份证对象的属性来实现实体类之间的关系建立；
+然后在要使用的方法上添加@Results注解
+如：@Results( id = &quot;idcardMap&quot;,value = {
+        @Result(id = true,property = &quot;id&quot;,column = &quot;id&quot;),
+        @Result(property = &quot;uid&quot;,column = &quot;uid&quot;),
+        @Result(property = &quot;idnumber&quot;,column = &quot;idnumber&quot;),
+        @Result(property = &quot;user&quot;,column = &quot;uid&quot;,one=@One(select = &quot;com.wang.dao.IUserDao.findById&quot;,fetchType = FetchType.EAGER))
+    })
+其中的最后一行@Result注解中的property表示对象，column表示的就是建立关系的字段（外键），one=@One表示的时一对一关系其中的select属性就是进行使用时要调用的方法的全限定名称，fetchType表示的是采用立即加载还是延迟加载的方式进行加载。mybatis中规定一对一的关系要采用立即加载的方式，一对多的关系要采用延迟加载的方式。</code></pre><h4 id="一对多："><a href="#一对多：" class="headerlink" title="一对多："></a>一对多：</h4><pre><code>在数据库中建立外键体现一对多关系
+在实体类中创建一个对象集合表明是一对多关系；
+例如：身份证和人之间的关系
+        在定义人这个类时需要添加一个身份证对象的属性来实现实体类之间的关系建立；
+然后在要使用的方法上添加@Results注解
+如:
+    @Result(id = true ,property = &quot;userId&quot;,column = &quot;id&quot;),
+        @Result(property = &quot;userName&quot;,column = &quot;username&quot;),
+        @Result(property = &quot;userSex&quot;,column = &quot;sex&quot;),
+        @Result(property = &quot;userAddress&quot;,column = &quot;address&quot;),
+        @Result(property = &quot;userBirthday&quot;,column = &quot;birthday&quot;),
+        @Result(property = &quot;accounts&quot;,column = &quot;id&quot;,many = @Many(select = &quot;com.wang.dao.IAccountDao.findByUid&quot;,fetchType = FetchType.LAZY))
+    })
+其中的最后一行@Result注解中的property表示对象，column表示的就是建立关系的字段（外键），many=@Many表示的时一对一关系其中的select属性就是进行使用时要调用的方法的全限定名称。</code></pre><h4 id="多对一："><a href="#多对一：" class="headerlink" title="多对一："></a>多对一：</h4><pre><code>在mybatis中对于多对一没用定义，他认为“多”中的每一个元素都和“一”是一对一的关系。所以参考一对一关系如何实现。</code></pre><h4 id="多对多："><a href="#多对多：" class="headerlink" title="多对多："></a>多对多：</h4><pre><code>多对多的关系主要是采用建立一张关系表的形式来实现，当然也要在实体类中创建一个能体现多对多关系的类。然后通过这个关系类来实现多对多。多1中的每一个元素与多2都是一对多的关系。所以可以通过一对多的实现方式来体现。</code></pre>
           
     
     <div class="page-reward">
@@ -433,7 +453,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mybatis使用注解开发"><span class="toc-number">1.</span> <span class="toc-text">Mybatis使用注解开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对于单表的CRUD操作"><span class="toc-number">1.1.</span> <span class="toc-text">对于单表的CRUD操作</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mybatis使用注解开发"><span class="toc-number">1.</span> <span class="toc-text">Mybatis使用注解开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对于单表的CRUD操作"><span class="toc-number">1.1.</span> <span class="toc-text">对于单表的CRUD操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建立一个maven工程，导入相关jar包；"><span class="toc-number">1.1.1.</span> <span class="toc-text">建立一个maven工程，导入相关jar包；</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用xml文件初始化Mybatis的Configuration"><span class="toc-number">1.1.2.</span> <span class="toc-text">使用xml文件初始化Mybatis的Configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根据数据库中的表创建相应的javabean"><span class="toc-number">1.1.3.</span> <span class="toc-text">根据数据库中的表创建相应的javabean</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在dao层创建相应的dao"><span class="toc-number">1.1.4.</span> <span class="toc-text">在dao层创建相应的dao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对于单表crud其他操作，假设列名与属性名相同。"><span class="toc-number">1.1.5.</span> <span class="toc-text">对于单表crud其他操作，假设列名与属性名相同。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对于多表的CRUD操作"><span class="toc-number">1.2.</span> <span class="toc-text">对于多表的CRUD操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对于多表的操作需要根据表与表之间的关系来进行"><span class="toc-number">1.2.1.</span> <span class="toc-text">对于多表的操作需要根据表与表之间的关系来进行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一对一："><span class="toc-number">1.2.1.1.</span> <span class="toc-text">一对一：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一对多："><span class="toc-number">1.2.1.2.</span> <span class="toc-text">一对多：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多对一："><span class="toc-number">1.2.1.3.</span> <span class="toc-text">多对一：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多对多："><span class="toc-number">1.2.1.4.</span> <span class="toc-text">多对多：</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
