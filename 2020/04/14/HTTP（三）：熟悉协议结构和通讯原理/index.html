@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wangcunzhi.github.io">
-  <title>wangcunzhi</title>
+  <title>HTTP（三）：熟悉协议结构和通讯原理 | wangcunzhi</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <!-- <meta name="keywords" content="">
-    <meta name="description" content=""> -->
-  
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wangcunzhi">
-<meta property="og:url" content="https://wangcunzhi.github.io/index.html">
+  <meta name="description" content="第三章 熟悉结构与通讯原理字符集与编码解码二进制数使用一套编码方式转换成字符编码与解码的过程相反浏览器会对URL中非ASCII编码的内容采用%编码的方式进行编码HTTP协议的身份认证BASIC认证（基本认证）客户机发送请求后，服务器返回状态码401，客户输入认证信息经过BASE64编码后再次向服务器发出请求，如果认证信息通过服务器返回200状态码如果不通过，返回401状态码DIGEST认证（摘要认">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP（三）：熟悉协议结构和通讯原理">
+<meta property="og:url" content="https://wangcunzhi.github.io/2020/04/14/HTTP%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E7%86%9F%E6%82%89%E5%8D%8F%E8%AE%AE%E7%BB%93%E6%9E%84%E5%92%8C%E9%80%9A%E8%AE%AF%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="wangcunzhi">
+<meta property="og:description" content="第三章 熟悉结构与通讯原理字符集与编码解码二进制数使用一套编码方式转换成字符编码与解码的过程相反浏览器会对URL中非ASCII编码的内容采用%编码的方式进行编码HTTP协议的身份认证BASIC认证（基本认证）客户机发送请求后，服务器返回状态码401，客户输入认证信息经过BASE64编码后再次向服务器发出请求，如果认证信息通过服务器返回200状态码如果不通过，返回401状态码DIGEST认证（摘要认">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-14T09:53:26.000Z">
+<meta property="article:modified_time" content="2020-04-14T09:55:16.905Z">
 <meta property="article:author" content="wangcunzhi">
+<meta property="article:tag" content="-HTTP">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wangcunzhi" type="application/atom+xml">
@@ -165,120 +166,25 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-HTTP（四）：HTTPS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-HTTP（三）：熟悉协议结构和通讯原理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/14/HTTP%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9AHTTPS/" target="_blank">HTTP（四）：HTTPS</a>
-  
+    <h1 class="article-title" itemprop="name">
+      HTTP（三）：熟悉协议结构和通讯原理
     </h1>
   
 
 
   
   
-<a href="/2020/04/14/HTTP%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9AHTTPS/" class="archive-article-date">
-        <time datetime="2020-04-14T09:53:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-        <h1 id="第四章-HTTPS"><a href="#第四章-HTTPS" class="headerlink" title="第四章 HTTPS"></a>第四章 HTTPS</h1><p>&lt;!- more -&gt;</p>
-<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><pre><code>对称加密：加密与解密使用相同的密钥。
-非对称加密：加密与解密使用不同的密钥</code></pre><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><pre><code>HTTPS可以认为是HTTP+TLS
-TLS是传输层加密协议，它的前身是SSL</code></pre><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><pre><code>内容加密
-    非对称密钥交换
-    对称内容加密
-身份认证
-    数字证书
-数据完整性</code></pre><h2 id="成本"><a href="#成本" class="headerlink" title="成本"></a>成本</h2><pre><code>证书费用以及更新维护
-HTTPS降低用户访问速度
-消耗CPU资源，需要增加大量机器</code></pre><h2 id="对性能的影响"><a href="#对性能的影响" class="headerlink" title="对性能的影响"></a>对性能的影响</h2><pre><code>协议交互所增加的网络RTT
-加密解密相关的计算耗时</code></pre>
-          
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">-HTTP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/14/HTTP%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9AHTTPS/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
 
-
-
-
-  
-    <article id="post-HTTP（三）：熟悉协议结构和通讯原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/14/HTTP%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E7%86%9F%E6%82%89%E5%8D%8F%E8%AE%AE%E7%BB%93%E6%9E%84%E5%92%8C%E9%80%9A%E8%AE%AF%E5%8E%9F%E7%90%86/" target="_blank">HTTP（三）：熟悉协议结构和通讯原理</a>
-  
-    </h1>
-  
-
-
-  
-  
 <a href="/2020/04/14/HTTP%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E7%86%9F%E6%82%89%E5%8D%8F%E8%AE%AE%E7%BB%93%E6%9E%84%E5%92%8C%E9%80%9A%E8%AE%AF%E5%8E%9F%E7%90%86/" class="archive-article-date">
         <time datetime="2020-04-14T09:53:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
 </a>
@@ -286,6 +192,27 @@ HTTPS降低用户访问速度
   
   
     
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.6k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">9分</span>
+    </span>
+  </span>
+</div>
+
 
   
   </header>
@@ -352,7 +279,48 @@ Range:bytes(unit=first byte pos)-[last byte pos]</code></pre><h3 id="Content-Ran
 Content-Range:bytes(unit=first byte pos)-[last byte pos]/[entity legth]</code></pre>
           
     
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/wechatpay.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
 
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          wangcunzhi
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://wangcunzhi.github.io/2020/04/14/HTTP（三）：熟悉协议结构和通讯原理/" title="HTTP（三）：熟悉协议结构和通讯原理" target="_blank">https://wangcunzhi.github.io/2020/04/14/HTTP（三）：熟悉协议结构和通讯原理/</a>
+        </li>
+        
+      </ul>
+    </div>
     
 
   </div>
@@ -373,16 +341,85 @@ Content-Range:bytes(unit=first byte pos)-[last byte pos]/[entity legth]</code></
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/14/HTTP%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E7%86%9F%E6%82%89%E5%8D%8F%E8%AE%AE%E7%BB%93%E6%9E%84%E5%92%8C%E9%80%9A%E8%AE%AF%E5%8E%9F%E7%90%86/">展开全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://wangcunzhi.github.io/2020/04/14/HTTP%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E7%86%9F%E6%82%89%E5%8D%8F%E8%AE%AE%E7%BB%93%E6%9E%84%E5%92%8C%E9%80%9A%E8%AE%AF%E5%8E%9F%E7%90%86/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+    <a href="/2020/04/14/HTTP%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9AHTTPS/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          HTTP（四）：HTTPS
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/14/HTTP%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%8D%8F%E8%AE%AE%E7%BB%93%E6%9E%84%E5%92%8C%E9%80%9A%E8%AE%AF%E5%8E%9F%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTTP（二）：协议结构和通讯原理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -397,1102 +434,33 @@ Content-Range:bytes(unit=first byte pos)-[last byte pos]/[entity legth]</code></
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HTTP（二）：协议结构和通讯原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/14/HTTP%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%8D%8F%E8%AE%AE%E7%BB%93%E6%9E%84%E5%92%8C%E9%80%9A%E8%AE%AF%E5%8E%9F%E7%90%86/" target="_blank">HTTP（二）：协议结构和通讯原理</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/14/HTTP%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%8D%8F%E8%AE%AE%E7%BB%93%E6%9E%84%E5%92%8C%E9%80%9A%E8%AE%AF%E5%8E%9F%E7%90%86/" class="archive-article-date">
-        <time datetime="2020-04-14T09:53:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-        <h1 id="第二章-HTTP协议结构和通讯原理"><a href="#第二章-HTTP协议结构和通讯原理" class="headerlink" title="第二章 HTTP协议结构和通讯原理"></a>第二章 HTTP协议结构和通讯原理</h1><p>&lt;!- more -&gt;</p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><pre><code>支持客户机/服务器模式
-    客户机服务器模式工作的方式是有客户端向服务器发出请求，服务器端响应请求，并进行相应服务。
-简单快速
-    客户向服务器请求服务时，只需要传送请求方法和路径
-    请求方法常用的有GET，HEAD，POST。每种方法规定了客户机与服务器联系的类型不同。
-灵活
-    HTTP允许传输任意类型的数据对象
-无连接
-    这里的含义不是不建立连接
-    而是限制每次连接只处理一个请求
-    服务器处理完客户的请求，收到客户的应答后，即断开连接。
-        前期的话为了合理利用信道设计成这个样式但后来随着页面元素的增多又添加了keep-alive的方式
-无状态
-    指协议对于事物的处理没有记忆能力。缺少状态意味着如果后续处理需要用到前面的信息。就必须重传，这样可能导致每次连接传送的数据量增大
-    产生了cookie session</code></pre><h2 id="URI与URL"><a href="#URI与URL" class="headerlink" title="URI与URL"></a>URI与URL</h2><pre><code>URI：一个紧凑的字符串的字符串用来标记抽象或物理资源
-一个URI可以近一步被分为定位符，名字或两者都是
-URL时URI的子集，除了确定一个资源，还提供一种定位该资源的主要访问机制（如网络位置）
-URI=URL+URN
-URL是URI的一种，但不是所有的URI都是URL
-URI与URL最大的区别就是访问机制
-URN是唯一标识部分，是身份信息</code></pre><h2 id="HTTP报文结构分析-请求报文"><a href="#HTTP报文结构分析-请求报文" class="headerlink" title="HTTP报文结构分析-请求报文"></a>HTTP报文结构分析-请求报文</h2><pre><code>请求行 ：请求方法 请求URI HTTP协议及版本
-请求头
-    报文头可分为4类
-    通用报文头
-        Cache-Control 控制缓存行为
-        Connection 连接首部，连接的管理
-        Date：创建报文的日期
-        Pragma：报文指令
-        Trailer：报文末端的首部一览
-        Transfer-Encoding：指报文主体的传输编码方式
-        Upgrade升级为其他协议
-        Via：代理服务器的相关信息
-        Warning：错误通知
-    请求报文头
-    响应报文头
-    实体报文头
-（报文头与报文体之间有一个空行）
-请求体：以键值对的方式传递参数信息（GET方式是在URI中传递参数信息）</code></pre><h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><pre><code>ACCEPT：浏览器端可接收的媒体类型
-    ACCEPT：text/html 代表浏览器可以接受服务器回发的类型为text/html也就是我们常说的html文档，如果服务器无法返回text/html类型的数据，服务器就应该返回一个406错误（Non Acceptable）
-    Accept：*/* 代表浏览器可以处理所有的类型
-Accept-Encoding：浏览器声明自己接收的编码方法
-    通常是指定压缩方法，是否支持压缩，支持什么压缩方法。
-Accept-Language：浏览器声明自己接受的语言
-    Accept-Language: zh-cn,zh;q=0.7,en-us,en;q=0.3
-    客户端在服务器有中文版资源的情况下，会请求其返回中文版对应的响应，没有中文版时，则请求返回英文版响应
-Connection：keep-alive 当一个网页打开完成后，客户端与服务器之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个服务器上的网页，会继续使用这个已经建立的连接。
-            close表示需要重新建立连接
-Host：主要是用于指定被请求资源的Internet注解和端口号；通常是从Http URL中提取出来。
-Referer：当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器是从哪个页面连接过来的，服务器可以获得一些信息用于处理。
-    防盗链或者记录推广信息等
-User-Agent：高速HTTP服务器，客户端使用的操作系统和浏览器名称及版本
-Content-Type：说明了报文体内对象的媒体类型</code></pre><h2 id="HTTP报文结构分析-响应报文"><a href="#HTTP报文结构分析-响应报文" class="headerlink" title="HTTP报文结构分析-响应报文"></a>HTTP报文结构分析-响应报文</h2><pre><code>响应行 ：报文协议及版本 状态码及状态描述
-响应头
-（报文头与报文体之间有一个空行）
-响应体：请求的返回内容</code></pre><h2 id="HTTP请求方式剖析"><a href="#HTTP请求方式剖析" class="headerlink" title="HTTP请求方式剖析"></a>HTTP请求方式剖析</h2><h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><pre><code>用来请求访问已被URI识别的资源
-指定的资源经服务器端解析后返回响应内容
-可以用来提交保单或其他数据只需在？后面写即可
-https://localhost/index.html?username=zhangsan&amp;password=123
-从上面的URL请求中很容易获得表单提交的内容</code></pre><h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><pre><code>与GET功能类似 一般用来传输实体的主体
-POST方法的主要目的不是获取响应主体的内容主要是做提交请求
-要提交的数据放于请求体中</code></pre><h3 id="PUT"><a href="#PUT" class="headerlink" title="PUT"></a>PUT</h3><pre><code>从客户端向服务器传送的数据取代指定的文档内容
-PUT是幂等的，POST不是幂等的
-不管执行多少操作都是返回相同的结果
-比如说 在博客上发帖子这属于对内容的添加需要开辟一段新的位置存放这时用POST
-而对于向更换头像或个性签名这类的操作，在原来已有的位置上更改信息，这用PUT比较合适（创建对象的时候用POST，更新对象的时候用PUT但是对于HTTP1.1来说在PUT方法中没有加入验证机制所以并不安全，更新的操作交给后台代码实现）
-更多时候将PUT方法用作传输资源</code></pre><h3 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h3><pre><code>与GET方法类似 只不过返回的响应中没有具体内容
-因此常用来测试超链接的有效性以及是否有更新</code></pre><h3 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h3><pre><code>请求服务器删除指定资源
-没有验证机制不安全，容易造成安全漏洞
-不常用</code></pre><h3 id="OPTIONS"><a href="#OPTIONS" class="headerlink" title="OPTIONS"></a>OPTIONS</h3><pre><code>用来查询针对URI指定的资源支持的方法</code></pre><h3 id="TRACE"><a href="#TRACE" class="headerlink" title="TRACE"></a>TRACE</h3><pre><code>会显服务器收到的请求，主要用于测试或诊断
-不安全不常用</code></pre><h3 id="CONNECT"><a href="#CONNECT" class="headerlink" title="CONNECT"></a>CONNECT</h3><pre><code>开启一个客户端与所请求资源之间双向沟通的通道，用来创建隧道</code></pre><h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><pre><code>用于表示网页服务器超文本传输协议响应状态的3位数字代码
-    1XX Informational（信息性状态码） 接收的请求正在处理
-    2XX Success（成功状态码） 请求正常处理完毕
-    3XX Redirection（重定向状态码） 需要进行附加操作以完成请求
-    4XX Client Error（客户端错误状态码） 服务器无法处理请求
-    5XX Server Error（服务器错误状态码） 服务器处理请求出错</code></pre><h3 id="1XX-信息"><a href="#1XX-信息" class="headerlink" title="1XX 信息"></a>1XX 信息</h3><pre><code>100 Continue ：表明到目前为止都很正常，客户端可以继续发送请求或者忽略这个响应。</code></pre><h3 id="2XX-成功"><a href="#2XX-成功" class="headerlink" title="2XX 成功"></a>2XX 成功</h3><pre><code>200 OK
-204 No Content ：请求已经成功处理，但是返回的响应报文不包含实体的主体部分。一般在只需要从客户端
-往服务器发送信息，而不需要返回数据时使用。
-206 Partial Content ：表示客户端进行了范围请求，响应报文包含由 Content-Range 指定范围的实体内
-容。</code></pre><h3 id="3XX-重定向"><a href="#3XX-重定向" class="headerlink" title="3XX 重定向"></a>3XX 重定向</h3><pre><code>301 Moved Permanently ：永久性重定向
-302 Found ：临时性重定向
-303 See Other ：和 302 有着相同的功能，但是 303 明确要求客户端应该采用 GET 方法获取资源。
-注：虽然 HTTP 协议规定 301、302 状态下重定向时不允许把 POST 方法改成 GET 方法，但是大多数浏览器
-都会在 301、302 和 303 状态下的重定向把 POST 方法改成 GET 方法。
-304 Not Modified ：如果请求报文首部包含一些条件，例如：If-MatchIf-Modified-Since，If-NoneMatch，If-Range，If-Unmodified-Since，如果不满足条件，则服务器会返回 304 状态码。
-307 Temporary Redirect ：临时重定向，与 302 的含义类似，但是 307 要求浏览器不会把重定向请求的POST 方法改成 GET 方法。</code></pre><h3 id="4XX-客户端错误"><a href="#4XX-客户端错误" class="headerlink" title="4XX 客户端错误"></a>4XX 客户端错误</h3><pre><code>400 Bad Request ：请求报文中存在语法错误。
-401 Unauthorized ：该状态码表示发送的请求需要有认证信息（BASIC 认证、DIGEST 认证）。如果之前已
-进行过一次请求，则表示用户认证失败。
-403 Forbidden ：请求被拒绝。
-404 Not Found</code></pre><h3 id="5XX-服务器错误"><a href="#5XX-服务器错误" class="headerlink" title="5XX 服务器错误"></a>5XX 服务器错误</h3><pre><code>500 Internal Server Error ：服务器正在执行请求时发生错误。
-503 Service Unavailable ：服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。</code></pre><h2 id="HTTP状态管理（会话机制）：Cookie和Session"><a href="#HTTP状态管理（会话机制）：Cookie和Session" class="headerlink" title="HTTP状态管理（会话机制）：Cookie和Session"></a>HTTP状态管理（会话机制）：Cookie和Session</h2><h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><pre><code>cookie实际上是一小段的文本信息。客户端请求服务器，如果服务器需要记录该用户状态，就像客户端浏览器颁发一个cookie
-客户端浏览器会把cookie保存起来，当浏览器再请求该网站时，浏览器会把请求的网址连通该cookie一同提交给服务器，服务器检查该cookie以此来辨认用户身份。</code></pre><h3 id="session"><a href="#session" class="headerlink" title="session"></a>session</h3><pre><code>session是另一种记录客户状态的机制，保存在服务器上。客户端访问服务器时，服务器把客户端信息以某种形式记录在服务器上。
-客户端浏览器再次访问时只需要从该session中查找用户的状态就可以了。
-保存session ID的方式
-    cookie
-    URL重写
-    隐藏表单
-Session的有效期
-    Session超时失效
-    程序调用HttpSession.invalidate()
-    服务器进程停止</code></pre><h3 id="Cookie与Session的比较"><a href="#Cookie与Session的比较" class="headerlink" title="Cookie与Session的比较"></a>Cookie与Session的比较</h3><pre><code>1.存放位置不同
-    cookie存放在客户端
-    Session存放在服务器端
-2.安全性不同
-    Cooike存放在客户端，可能会导致信息泄露
-    Session存放在服务器中相对安全
-3.有效期上不同
-4.对服务器压力不同</code></pre>
-          
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">-HTTP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/14/HTTP%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%8D%8F%E8%AE%AE%E7%BB%93%E6%9E%84%E5%92%8C%E9%80%9A%E8%AE%AF%E5%8E%9F%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第三章-熟悉结构与通讯原理"><span class="toc-number">1.</span> <span class="toc-text">第三章 熟悉结构与通讯原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符集与编码"><span class="toc-number">1.1.</span> <span class="toc-text">字符集与编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解码"><span class="toc-number">1.1.1.</span> <span class="toc-text">解码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编码"><span class="toc-number">1.1.2.</span> <span class="toc-text">编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器会对URL中非ASCII编码的内容采用-编码的方式进行编码"><span class="toc-number">1.1.3.</span> <span class="toc-text">浏览器会对URL中非ASCII编码的内容采用%编码的方式进行编码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP协议的身份认证"><span class="toc-number">1.2.</span> <span class="toc-text">HTTP协议的身份认证</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BASIC认证（基本认证）"><span class="toc-number">1.2.1.</span> <span class="toc-text">BASIC认证（基本认证）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DIGEST认证（摘要认证）"><span class="toc-number">1.2.2.</span> <span class="toc-text">DIGEST认证（摘要认证）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL客户端认证"><span class="toc-number">1.2.3.</span> <span class="toc-text">SSL客户端认证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FromBase认证（基于表单认证）"><span class="toc-number">1.2.4.</span> <span class="toc-text">FromBase认证（基于表单认证）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http的长连接与短连接"><span class="toc-number">1.3.</span> <span class="toc-text">http的长连接与短连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http中介之代理"><span class="toc-number">1.4.</span> <span class="toc-text">http中介之代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#作用"><span class="toc-number">1.4.1.</span> <span class="toc-text">作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http中介之网关"><span class="toc-number">1.5.</span> <span class="toc-text">http中介之网关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#web网关"><span class="toc-number">1.5.1.</span> <span class="toc-text">web网关</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP缓存"><span class="toc-number">1.6.</span> <span class="toc-text">HTTP缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#缓存的工作方式"><span class="toc-number">1.6.1.</span> <span class="toc-text">缓存的工作方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#场景一：让服务器与浏览器规定以一个文件过期时间-Expires"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">场景一：让服务器与浏览器规定以一个文件过期时间-Expires</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#场景二：让服务器与浏览器在约定文件过期时间的基础之上，再加一个文件最新修改时间的对比—-Last-Modified与if-Modified-Since"><span class="toc-number">1.6.1.2.</span> <span class="toc-text">场景二：让服务器与浏览器在约定文件过期时间的基础之上，再加一个文件最新修改时间的对比—-Last-Modified与if-Modified-Since</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#场景三：让服务器与浏览器在过期时间Expires-Last-Modified的基础上，增加一个文件内容唯一对比标记—Etag与if-None-Match。expires不稳定，再加一个max-age来加以替代。"><span class="toc-number">1.6.1.3.</span> <span class="toc-text">场景三：让服务器与浏览器在过期时间Expires+Last-Modified的基础上，增加一个文件内容唯一对比标记—Etag与if-None-Match。expires不稳定，再加一个max-age来加以替代。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缓存改进方案"><span class="toc-number">1.6.2.</span> <span class="toc-text">缓存改进方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器操作对HTTP的影响"><span class="toc-number">1.6.3.</span> <span class="toc-text">浏览器操作对HTTP的影响</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内容协商机制"><span class="toc-number">1.7.</span> <span class="toc-text">内容协商机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内容协商方式"><span class="toc-number">1.7.1.</span> <span class="toc-text">内容协商方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端驱动"><span class="toc-number">1.7.1.1.</span> <span class="toc-text">客户端驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器驱动"><span class="toc-number">1.7.1.2.</span> <span class="toc-text">服务器驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#透明协商"><span class="toc-number">1.7.1.3.</span> <span class="toc-text">透明协商</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器驱动内容协商-请求首部集"><span class="toc-number">1.7.1.4.</span> <span class="toc-text">服务器驱动内容协商-请求首部集</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#断点续传和多线程下载"><span class="toc-number">1.8.</span> <span class="toc-text">断点续传和多线程下载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Range"><span class="toc-number">1.8.1.</span> <span class="toc-text">Range</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-Range"><span class="toc-number">1.8.2.</span> <span class="toc-text">Content-Range</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
 
-  
-    <article id="post-HTTP（一）：概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/14/HTTP%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E6%A6%82%E8%BF%B0/" target="_blank">HTTP（一）：概述 </a>
-  
-    </h1>
-  
 
 
-  
-  
-<a href="/2020/04/14/HTTP%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E6%A6%82%E8%BF%B0/" class="archive-article-date">
-        <time datetime="2020-04-14T09:52:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
 
-  
-  
-    
 
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-        <h1 id="第一章-了解HTTP协议"><a href="#第一章-了解HTTP协议" class="headerlink" title="第一章 了解HTTP协议"></a>第一章 了解HTTP协议</h1><p>&lt;!- more -&gt;</p>
-<h2 id="什么是HTTP？"><a href="#什么是HTTP？" class="headerlink" title="什么是HTTP？"></a>什么是HTTP？</h2><pre><code>超文本传输协议是一种通信协议，它允许将超文本标记语言（HTML）文档从web服务器传送到客户端浏览器。
-其实就是两个终端之间传输HTML所使用的规则
-超文本简单来说就是内含超链接的文本内容
-属于应用层的面向对象的协议
 
-web是一种基于超文本和HTTP的 全球性的 动态交互的 跨平台的分布式图形信息系统。
 
-HTTP协议是构建在TCP/IP协议之上的，是TCP/IP的一个子集
-    分层管理是TCP/IP协议的重要特征（tcp/ip的四层）</code></pre><h2 id="TCP的三次握手"><a href="#TCP的三次握手" class="headerlink" title="TCP的三次握手"></a>TCP的三次握手</h2><pre><code>1.首先服务器处于监听状态，等待客户机的连接请求
-2.客户机向服务器发送连接请求报文 SYN=1 ACK=0 选择一个初始序号x即seq=x；
-3.服务器收到请求报文，如果同意建立连接，则会向客户机发送连接确认报文，SYN=1，ACK=1，确认号为x+1，同时也选择一个初始序号y。
-4.客户机收到服务器的连接确认报文后，还要向服务器确认，再次发送一段报文，，确认号是y+1 序号是x+1
-5.服务器收到客户机的确认后，连接建立。</code></pre><h2 id="三次握手的原因。"><a href="#三次握手的原因。" class="headerlink" title="三次握手的原因。"></a>三次握手的原因。</h2><pre><code>第一种：
-    第三次握手是为了防止失效的连接请求到达服务器，让服务器错误打开连接
-    客户端发送的连接请求如果在网络中滞留，那么会等待很长一段时间才能收到服务器端发挥的连接确认。
-    客户端等待一个超时重传时间后，就会重新请求i按揭，但是这个滞留的连接请求最后还是会到达服务器。
-    这是如果不进行第三次握手，服务器就会打开连个连接。
-    如果有三次握手，客户机就会忽略服务器之后发送的对滞留连接请求的连接确认，不再次进行第三次握手，因此就不会再次建立连接。
-第二种：
-    第一次握手 客户机向服务器发送连接请求
-    第二次握手 服务器向客户机发送连接确认请求 客户机收到，此时客户机确认自己的发送和接受功能与服务器的发送和接收功能都没有问题，但是服务器只能知道客户机的发送功能和自己的接收功能没有问题 对于客户机的接收功能和自己的发送功能是否有问题还有待确认。
-    第三次握手 客户机再次向服务器发送请求 返回已经收到连接确认信息
-        这次服务器发现客户机的接收功能与自己的发送功能也没有问题，此时连接建立</code></pre><h2 id="DNS域名解析服务"><a href="#DNS域名解析服务" class="headerlink" title="DNS域名解析服务"></a>DNS域名解析服务</h2><pre><code>提供域名到IP地址的解析服务
-1.主机寻找本机的host文件中是否有该域名与ip地址的映射关系，有就返回 ，没有就找本地的DNS服务器。（设置的首选DNS服务器）
-2.本地的DNS服务器缓存中如果有该映射关系就会返回，如果没有，就会向根DNS服务其发送请求，得到能解析这个域名的DNS服务器
-3.根DNS服务器找到能解析这个域名的DNS服务器后，把这个服务器的信息返回给本地DNS服务器。
-4.本地DNS服务器向根提供的服务器发送请求，解析域名，解析完成后返回该域名的映射关系。本地DNS服务器返回给主机并存入到本地DNS服务器的缓存中方便下次使用。</code></pre>
-          
-    
 
-    
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">-HTTP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/14/HTTP%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E6%A6%82%E8%BF%B0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-计算机网络（六）：应用层" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9A%E5%BA%94%E7%94%A8%E5%B1%82/" target="_blank">计算机网络（六）：应用层</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9A%E5%BA%94%E7%94%A8%E5%B1%82/" class="archive-article-date">
-        <time datetime="2020-04-14T09:47:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-        <h1 id="第六章-应用层"><a href="#第六章-应用层" class="headerlink" title="第六章 应用层"></a>第六章 应用层</h1><p>&lt;!- more -&gt;</p>
-<h2 id="域名解析服务"><a href="#域名解析服务" class="headerlink" title="域名解析服务"></a>域名解析服务</h2><pre><code>DNS的作用 负责解析域名 把域名解析成ip地址</code></pre><h3 id="什么是域名"><a href="#什么是域名" class="headerlink" title="什么是域名"></a>什么是域名</h3><pre><code>根
-顶级域名 com edu net cn org gov
-二级域名 itheima baidu
-三级域名 </code></pre><h3 id="域名解析的过程-分布式"><a href="#域名解析的过程-分布式" class="headerlink" title="域名解析的过程 分布式"></a>域名解析的过程 分布式</h3><pre><code>根DNS服务器不负责具体的域名解析但它知道如何顶级域名该由哪一个服务器进行解析。
-假设主机要访问一个顶级域名为com的网站 此时他的DNS服务器也是负责解析com的如果在缓存中有直接返回 缓存中没有解析完在返回
-假设主机要访问一个顶级域名为com的网站 此时他的DNS服务器也是负责解析net的如果在缓存中有直接返回 缓存中没有就向根DNS服务器询问 然后根DNS服务器告诉它负责解析net的DNS服务器知道，就会向解析net的DNS服务器发送请求 然后netDNS服务器返回给comDNS服务器一个ip地址，com存入缓存后在返回给主机</code></pre><h3 id="安装自己的DNS服务器"><a href="#安装自己的DNS服务器" class="headerlink" title="安装自己的DNS服务器"></a>安装自己的DNS服务器</h3><pre><code>1.解析内网自己的域名
-2.降低到Iternet的域名解析流量
-3.域环境</code></pre><h2 id="动态主机配置协议DHCP"><a href="#动态主机配置协议DHCP" class="headerlink" title="动态主机配置协议DHCP"></a>动态主机配置协议DHCP</h2><pre><code>请求地址的过程就是用的DHCP服务
-静态IP地址
-    服务器可以设置成静态的
-    不经常改变位置的主机
-动态IP地址</code></pre><h2 id="DHCP客户端请求IP地址的过程"><a href="#DHCP客户端请求IP地址的过程" class="headerlink" title="DHCP客户端请求IP地址的过程"></a>DHCP客户端请求IP地址的过程</h2><pre><code>客户机向发出广播然后网内的DHCP服务器会在造一个合适的ip地址返还给客户机
-客户机选择好后 其余的DHCP服务器会把Ip地址再收回</code></pre>
-          
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">-计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9A%E5%BA%94%E7%94%A8%E5%B1%82/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-计算机网络（五）：传输层" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E4%BC%A0%E8%BE%93%E5%B1%82/" target="_blank">计算机网络（五）：传输层</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E4%BC%A0%E8%BE%93%E5%B1%82/" class="archive-article-date">
-        <time datetime="2020-04-14T09:46:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-        <h1 id="第五章-传输层"><a href="#第五章-传输层" class="headerlink" title="第五章 传输层"></a>第五章 传输层</h1><p>&lt;!- more -&gt;<br>    TCP：面向连接的可靠数据传输<br>        应用场景：需要分段 编号 进行流量控制 需要建立会话 netsat -n 传文件<br>                 访问网站 上传下载文件<br>    UDP：面向无连接的不可靠数据船速<br>        应用场景：不编号 一个数据包就能完成数据通信 不建立会话 qq聊天 电视节目 </p>
-<h2 id="传输层和应用层之间的关系"><a href="#传输层和应用层之间的关系" class="headerlink" title="传输层和应用层之间的关系"></a>传输层和应用层之间的关系</h2><pre><code>http=TCP+80
-https=TCP+443
-ftp=TCP+21
-SMTP=TCP+25
-POP3=TCP+110
-RDP=TCP+3389（远程桌面）
-共享文件夹=TCP+445
-SQL=TCP+1433
-DNS=UDP+53 or TCP+53</code></pre><h2 id="应用层协议和服务之间的关系"><a href="#应用层协议和服务之间的关系" class="headerlink" title="应用层协议和服务之间的关系"></a>应用层协议和服务之间的关系</h2><pre><code>服务运行后在tcp或udp的某个端口侦听客户端的请求q </code></pre><h2 id="端口代表服务"><a href="#端口代表服务" class="headerlink" title="端口代表服务"></a>端口代表服务</h2><h2 id="TCP与UDP"><a href="#TCP与UDP" class="headerlink" title="TCP与UDP"></a>TCP与UDP</h2><pre><code>两个对等运输实体在通信时传送的数据单位叫做运输协议数据单元
-TCP传送的数据单元是TCP报文段
-UDP传送的协议数据单元是UDP报文或用户数据报
-
-UDP在传送数据之前不需要先建立连接，对方的运输层在收到UDP报文后，不需要给主任何确认。虽然UDP不提供可靠交付，但在某些情况下UDP是一种最有效的工作方式。
-
-TCP则提供面向连接的服务，TCP不提供广播或多广播服务。由于TCP要提供可靠的，面向连接的运输服务，因此不可避免地增加了许多的开销。这不仅是协议数据单元的首部增大很多，还要占用许多处理资源。</code></pre><h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><pre><code>TCP是面向连接的传输层协议
-每一条TCP连接只能有两个的端点，每一条TCP连接只能是点对点的（一对一）
-提供可靠交付的服务TCP
-提供全双工通信（必须是全双工）
-面向字节流 
-
-TCP连接的端点不是主机，不是主机的IP地址，不是应用进程，也不是传输层的西医端口。TCP连接的端点叫套接字（socket）
-端口号拼接到IP地址就构成了套接字</code></pre><h2 id="可靠传输的工作原理–停止等待协议"><a href="#可靠传输的工作原理–停止等待协议" class="headerlink" title="可靠传输的工作原理–停止等待协议"></a>可靠传输的工作原理–停止等待协议</h2><pre><code>无差错情况：发送第一段数据时会先等待主机B确认收到再发送下一段数据
-超时重传：数据发生丢失时或报文有差错时会丢弃然后等待一段大于的RTT时间后重新传输。
-确认丢失：指主机B向主机A响应确认收到的信息时导致确认信息的丢失 ，主机B会丢掉重复的数据再次让主机A重新发送一份
-确认迟到：指主机B向主机A响应确认收到的信息时因网络问题或者回传路径选择问题提出现了确认信息主机A未在规定时间内收到，主机B会丢掉重复的数据再次让主机A重新发送一份
-
-只要主机A没有收到确认信息就会向主机B重新发送一次数据
-
-使用这种重传机制就可以在不可靠的传输网络上实现可靠的通信。
-这种可靠的传输协议通常称为自动重传请求ARQ
-ARQ表明重传的请求就是自动进行的，接收方不需要请求发送方重传某个出错分组
-优点时简单 缺点是信道利用率太低
-
-通过流水线传输可以听提高信道利用率
-    发送方可连续发送多个分组，不必每发完一个分组就停顿下来等待对方的确认
-    由于信道上一直有数据不间断的传输这样可以获得很高的信道利用率</code></pre><h3 id="连续ARQ协议"><a href="#连续ARQ协议" class="headerlink" title="连续ARQ协议"></a>连续ARQ协议</h3><pre><code>提过一个发送窗口，由发送方维持假设发送窗口的大小是5
-表示一次可以发送5个数据分组[1,5] 发送完成后等待确认消息，确认第一个分组收到后
-窗口会自动向下一个分组滑动，然后该窗口就会包含[2,6]的数据，然后发现分组6的数据没有发送就会发送分组6的数据，然后分组2的确认消息收到后再次滑动。。以此类推</code></pre><h2 id="接收方一般采用累计确认：确认序号会选择连续的中的最后一个返会确认信息"><a href="#接收方一般采用累计确认：确认序号会选择连续的中的最后一个返会确认信息" class="headerlink" title="接收方一般采用累计确认：确认序号会选择连续的中的最后一个返会确认信息"></a>接收方一般采用累计确认：确认序号会选择连续的中的最后一个返会确认信息</h2><pre><code>假设收到1235就会响应收到3的确认消息</code></pre><h2 id="TCP的首部格式-固定长度20字节-可变长度部分"><a href="#TCP的首部格式-固定长度20字节-可变长度部分" class="headerlink" title="TCP的首部格式 固定长度20字节+可变长度部分"></a>TCP的首部格式 固定长度20字节+可变长度部分</h2><pre><code>源端口：16位
-目的端口：16位
-序号：32位 确认分组后的数据的第一个字节在原数据中所占的位置
-确认号：32位 发送数据时就是当前序号 确认收到数据后确认号保存的是下一个该传那一个数据包
-数据偏移 记录在从多少位开始是数据 还可以记录首部的长度最长是60个字节
-保留 无用
-URG 用于告诉计算机这是个级别较高的数据优先传输 标记为1时无论计算机在传哪一个都会优先传这个 在传输过程中插队
-ACK 如果是0的话确认号无效 1的话确认号才有效
-PSH 会使数据包优先传入应用程序 在应用程序从缓存中读取数据时插队
-RST 如果是1 表明在通讯过程中异常结束的情况 系统会结束当前会话 重新建立连接
-SYN 同步使用到的
-    第一次建立请求时发送一个SYN=1 ACK =0 确认号序号均为0的请求
-    同意建立会话时然后响应回来一个 序号为0 确认号为1 SYN=1 ACK=1的数据
-    会话建立成功后SYN=0
-
-    SYN攻击 利用虚拟的IP地址向一个主机发起会话，主机会向这些虚拟地址响应信息，因为这个IP地址不存在 所以会导致主机短时间内接收不到反馈信息，大量占用CPU导致瘫痪
-
-    LAND攻击 利用主机自己的IP和自己建立会话，占用系统资源 攻瘫主机
-FIN 数据通讯结束的时候 数据包传递完成 释放连接 fin位置为1
-窗口 占2字节 窗口大小就是发送的时候设置的接收缓存或者发送缓存的大小
-    MSS表示一个数据包最大占多少字节
-检验和 占两节 首部和数据两部分
-紧急指针 ：
-选项：3字节通知最大数据包大小 是不是支持选择性确认
-填充</code></pre><h2 id="TCP如何实现可靠传输-停止等待协议-滑动窗口-累积确认"><a href="#TCP如何实现可靠传输-停止等待协议-滑动窗口-累积确认" class="headerlink" title="TCP如何实现可靠传输 停止等待协议 滑动窗口 累积确认"></a>TCP如何实现可靠传输 停止等待协议 滑动窗口 累积确认</h2><pre><code>1.以字节为单位的滑动窗口技术 有丢包的情况下会根据SACK进行选择性重传，告诉只重传丢失的部分即可</code></pre><h2 id="重传超时时间的选择"><a href="#重传超时时间的选择" class="headerlink" title="重传超时时间的选择"></a>重传超时时间的选择</h2><pre><code>TCP每次发送一个报文段，就收到这个报文段设置一次计时器，只要计时器设置的重传时间到但还没有确认收到，就要重传这一段报文段。
-新的RTTs=（1-α）（旧的RTTs）+α（新的RTT样本）
-超时重传时间应略大于上面得出的加权平均往返时间RTTs</code></pre><h2 id="TCP如何实现流量控制"><a href="#TCP如何实现流量控制" class="headerlink" title="TCP如何实现流量控制"></a>TCP如何实现流量控制</h2><pre><code>解决通信两端处理速度不一样的问题
-通过修改滑动窗口的大小来实现流量控制</code></pre><h2 id="TCP的拥塞控制"><a href="#TCP的拥塞控制" class="headerlink" title="TCP的拥塞控制"></a>TCP的拥塞控制</h2><pre><code>出现资源拥塞的条件：对资源需求的综合&gt;可用资源
-拥塞控制是一个全局性的过程，涉及到所有的主机，所有的路由器，以及降低网络传输性能有关的所有因素。
-流量控制：往往指再给定的发送端和接收端之间的点对点通信量的控制，它所要做的就是抑制发送端发送数据的速率，以便使接收端来得及接受。
-实现原理：利用拥塞窗口+慢开始和拥塞避免算法实现 慢开始门限初始值使16 从1开始每次x2 达到16使每次+1 然后造成拥塞时再次初始化为1 慢开始门限变为拥塞时的数据包个数的1/2.
-
-后来又增加了快重传和快恢复 
-快重传：使用累积确认 当发现数据包丢失时立刻通知重传而不是等待。然后立即确认不在使用累积确认 发送三次确认。当发现拥塞产生时就会不在把冲1开始进行累计增加而是从门限开始进行线性增加
-与快恢复配合使用
-
-发送窗口的实际上限值=Min[rwnd,cwnd] 拥塞不大于接受</code></pre><h2 id="TCP的传输连接管理"><a href="#TCP的传输连接管理" class="headerlink" title="TCP的传输连接管理"></a>TCP的传输连接管理</h2><pre><code>传输连接的三个阶段：建立连接 ，数据传输，连接释放
-TCP连接的建立采用的时是客户机服务器方式
-主动发起连接建立的应用进程叫做客户
-被动等待连接建立的应用进程叫服务器</code></pre><h2 id="TCP连接的建立：三次握手"><a href="#TCP连接的建立：三次握手" class="headerlink" title="TCP连接的建立：三次握手"></a>TCP连接的建立：三次握手</h2><pre><code>1.客户机主动发送请求建立连接 发送同步数据包此时数据包中的SYN=1 ACK=0 seq=x（序号值不确定）.服务器根据SYN=1 ACK=0知道这是一个主动建立连接的数据包 客户机状态-SYN-SENT
-2.服务器会向客户机响应一个同步数据包SYN=1 ACK=1（表示确认号可用） seq=y ack=x+1 状态：SYN-RCVD
-3.客户机向服务器发送一个数据包ACK=1 seq=x+1 ack=y+1 服务器接收
-客户机：ESTAB-LISHED
-服务器：ESTAB-LISHED
-为什么有第三次确认？
-客户机向服务器发送建立连接的请求时 可能因为网络原因或者路由选择的路径原因没有第一时间内收到并响应信息。这时客户机等不到响应信息会再次发送一次建立连接的请求 ，这次服务器接收到并响应了信息。此时客户机可以发送数据，这时第一次发送的请求到达了服务器，服务器再次返回一个响应信息，但是客户机会认为服务器已经同意建立连接了不会理会这次响应信息造成服务器资源的浪费。所以加入了第三次请求（客户机向服务器发送的）使服务器收到连接建立的信息并做出处理。</code></pre><h2 id="TCP连接的释放：四次挥手"><a href="#TCP连接的释放：四次挥手" class="headerlink" title="TCP连接的释放：四次挥手"></a>TCP连接的释放：四次挥手</h2><pre><code>1.客户机向服务器发送一个数据包 FIN=1 seq=u的数据 等待服务器确认
-    数据传输结束后通信双方都可以释放连接。 现在A的应用进程先向TCP发出释放连接报文段，并停止再发数据，主动关闭TCP连接
-    客户机状态：FIN-WAIT-1
-2.服务器收到后给客户机返回一个确认数据包 ACK=1 seq=v ack=u+1
-    TCP服务器应用进程通知高层应用进程。
-    此时从客户机到服务器的连接就释放了，TCP连接处于半关闭状态，服务器若向客户机发送数据，客户机仍要接收。
-    客户机状态：FIN-WAIT-2
-    服务器状态：CLOSE-WAIT
-3.若服务器已经没有要向客户机发送的数据其应用进程就通知TCP释放连接。然后服务器向客户机发送一个数据包 FIN=1 ACK=1 seq=w ack=u+1
-    客户机状态：TIME-WAIT
-    服务器状态：LAST-ACK
-4.客户机收到连接释放报文段后，必须发出确认
-    ACK=1 seq=u+1 ack=w+1
-    客户机状态：等待2MSL变为CLOSED MSL最长报文寿命默认是2分钟
-        作用：如果没有这个等待时间 在发送数据时有可能发生丢包现象，致使服务器没有收到确认关闭的信息 服务器会再次发送释放连接报文段但此时客户机以断开连接会收不到信息导致服务器到客户机的连接无法正常关闭。
-    服务器状态：CLOSED</code></pre>
-          
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">-计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E4%BC%A0%E8%BE%93%E5%B1%82/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-计算机网络（四）：网络层" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%B1%82/" target="_blank">计算机网络（四）：网络层</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%B1%82/" class="archive-article-date">
-        <time datetime="2020-04-14T09:46:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-        <h1 id="第四章-网络层"><a href="#第四章-网络层" class="headerlink" title="第四章 网络层"></a>第四章 网络层</h1><p>&lt;!- more -&gt;<br>    *端系统提供可靠交付</p>
-<h2 id="网络层提供的两种服务"><a href="#网络层提供的两种服务" class="headerlink" title="网络层提供的两种服务"></a>网络层提供的两种服务</h2><pre><code>虚电路服务
-    建立好一个逻辑连接，如果该连接断掉则网络不通（类似电路交换但是不建立一个真正的连接）
-数据报服务：现在互联网用的
-    网络层只向上提供简单灵活的，无连接的，尽最大努力交付的数据报服务
-    网络层不提供服务质量的承诺，即所传送的分组可能丢失，也不保证分组传送的时限</code></pre><h2 id="网际协议IP"><a href="#网际协议IP" class="headerlink" title="网际协议IP"></a>网际协议IP</h2><h3 id="网络互联的设备"><a href="#网络互联的设备" class="headerlink" title="网络互联的设备"></a>网络互联的设备</h3><pre><code>中间设备又称为中间系统或中继系统
-物理层中继系统:集线器（信号放大）
-数据链路层：网桥或交换机
-网络层：路由器
-网络层之上：网关</code></pre><h3 id="与IP协议配套使用的还有四个协议"><a href="#与IP协议配套使用的还有四个协议" class="headerlink" title="与IP协议配套使用的还有四个协议"></a>与IP协议配套使用的还有四个协议</h3><pre><code>地址解析协议ARP
-逆地址解析协议RARP
-网际控制报文协议ICMP
-网际组管理协议IGMP</code></pre><h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><h4 id="IP地址的分类"><a href="#IP地址的分类" class="headerlink" title="IP地址的分类"></a>IP地址的分类</h4><pre><code>A类：前8位为网络地址 网络地址第一位是0
-    后24位为主机地址
-    1.0.0.1--126.255.255.254
-B类：前16位为网络地址 网络地址前两位是10
-     后16位为主机地址
-     128.0.0.1--191.255.255.254
-C类：前24位为网络地址 网络地址前三位是110
-     后8位为主机地址
-     192.0.0.1-223.255.255.254
-D类：组播地址 网络地址前4为是1110
-E类：研究地址 网络地址前4为是1111
-特殊地址：127.0.0.1 本地回环地址
-        169.254.0.0 自动获得失败是windows自动分配
-        保留的私网地址
-        10.0.0
-        172.16.0.0--172.31.0.0
-        192.16.0.0-192.168.255.0</code></pre><h4 id="子网掩码的作用"><a href="#子网掩码的作用" class="headerlink" title="子网掩码的作用"></a>子网掩码的作用</h4><pre><code>用于告诉计算机哪些是网络地址部分哪些是主机地址部分
-子网掩码和自己的ip地址做与运算得到的就是ip地址的网络部分</code></pre><h3 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h3><pre><code>主机地址不能全为零 ，全为零代表这一个网段
-主机地址不能全为一 ，全为一代表是一个广播地址 
-合理利用网络中的IP地址
-变长子网划分</code></pre><h3 id="超网"><a href="#超网" class="headerlink" title="超网"></a>超网</h3><pre><code>和划分子网相反的操作
-组合网段</code></pre><h3 id="mac地址和ip地址的区别"><a href="#mac地址和ip地址的区别" class="headerlink" title="mac地址和ip地址的区别"></a>mac地址和ip地址的区别</h3><pre><code>ip地址决定了数据包最终的目的终端
-mac地址决定了下一跳的地址</code></pre><h3 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h3><pre><code>负责把ip地址解析成mac地址 通过广播
-ARP欺骗：就是一个主机要向另一台主机发送信息时会先发送一段广播询问某个ip地址的mac地址是多少。在这个过程中可能会有非法人员返回一个自己的mac地址
-这样的话就会导致要传送的数据会先经过非法的mac地址再传到另一个主机导致信息的泄露</code></pre><h3 id="RARP协议"><a href="#RARP协议" class="headerlink" title="RARP协议"></a>RARP协议</h3><pre><code>负责根据mac地址请求IP地址</code></pre><h3 id="ip数据报由首部和数据两部分组成"><a href="#ip数据报由首部和数据两部分组成" class="headerlink" title="ip数据报由首部和数据两部分组成"></a>ip数据报由首部和数据两部分组成</h3><pre><code>首部的前一部分是固定长度共20个字节，是所有IP数据报必须具有的
-在首部的固定部分后面是一些可选字段其长度是可变的。
-
-版本：0-3位：表示的是ip协议的版本
-首部长度4-7 位表示的是真个首部的最大长度 ip的首部长度最大是60个字节
-区分服务：8-15 占8位用来获取更好的服务，一般不被使用
-总长度：16-31 指首部和数据之和的长度单位为字节 因此数据报的最大长度是65535字节
-标识:占16位是一个计数器用来产生数据报的标识，而不是序号，每产生一个数据包，就增加1.
-标志：占3位目前只有两位有意义，最低为是MF。MF=1表示后面还有分片。MF=0表示这是最后一个分片。标志字段的中间一位是DF，只有当DF=0时才允许分片。
-片偏移13位：指出较长分组在分片后某片在原分组中的相对位置。片偏移以8个字节为偏移单位
-生存时间：8位 即为TTL数据报在网络中可通过路由器数的最大值8位 Windows一般是128次 Linux一般是64次
-协议：8位字段指出此数据报携带的数据使用何种协议一遍目的的主机的ip层将数据部分上交给哪个处理过程。即标记上层所使用的协议
-首部校验和：只检验数据报的首部不检验数据部分，检验首部部分是否出错
-可变部分1-40字节 支持排错等安全措施，很少用到。</code></pre><h3 id="数据路由"><a href="#数据路由" class="headerlink" title="数据路由"></a>数据路由</h3><pre><code>路由器在不同网段转发数据包
-网络畅通的条件：能去能回
-    沿途的路由器必须知道目标网络下一跳给哪个接口
-静态路由：必须在每个路由器的路由表中配置好路由表，使路由器知道到每个网段需要跳转到哪一个接口才可以使网络畅通。</code></pre><h2 id="ICMP协议"><a href="#ICMP协议" class="headerlink" title="ICMP协议"></a>ICMP协议</h2><pre><code>主要是允许主机或卢欧气报告差错情况和提供有关异常情况的报告
-报文的前4个字节是统一格式，共有三个字段。即类型，代码和检验和接着4个字节的内容与ICMP的类型有关</code></pre><h3 id="ICMP类型"><a href="#ICMP类型" class="headerlink" title="ICMP类型"></a>ICMP类型</h3><pre><code>ICMP差错报告报文
-    终点不可达
-    源点抑制
-    时间超时
-    参数问题
-    改变路由（重定向）
-ICMP询问报文</code></pre><h3 id="动态路由协议"><a href="#动态路由协议" class="headerlink" title="动态路由协议"></a>动态路由协议</h3><pre><code>RIP 最早 周期性广播 动态的选择最佳路径 跳数最小 最大跳数16
-OSPF 根据带宽选择最佳路径 子网掩码反写 开放式支持多区域 触发式更新
-    三个表：邻居表 链路状态表</code></pre><h2 id="VPN功能"><a href="#VPN功能" class="headerlink" title="VPN功能"></a>VPN功能</h2><pre><code>虚拟专用网络 ：内网中设置一个对外连接的接口 然后其他人可以通过互联网访问接口对内网进行操作</code></pre><h2 id="网络地址转换过程"><a href="#网络地址转换过程" class="headerlink" title="网络地址转换过程"></a>网络地址转换过程</h2>
-          
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">-计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%B1%82/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-计算机网络（三）：数据链路层" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" target="_blank">计算机网络（三）：数据链路层</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" class="archive-article-date">
-        <time datetime="2020-04-14T09:45:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-        <h1 id="第二章-数据链路层"><a href="#第二章-数据链路层" class="headerlink" title="第二章 数据链路层"></a>第二章 数据链路层</h1><p>&lt;!- more -&gt;</p>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><pre><code>数据链路层使用的信道类型
-    点对点信道：这种信道使用一对一的点对点通信方式
-    广播信道：一对多的广播通信方式
-链路：点到点的物理线路段中间没有任何其他东西
-数据链路：除了物理链路外，还必须有通信协议来控制数据的传输</code></pre><h2 id="帧"><a href="#帧" class="headerlink" title="帧"></a>帧</h2><pre><code>数据链路层传输的是帧</code></pre><h2 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h2><h3 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h3><pre><code>在一段数据的前后分别添加首部和尾部
-作用进行帧定界
-只有传输过来的数据同时包含帧首部和帧尾部时才会接收，反之则丢弃    </code></pre><h3 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h3><pre><code>就是要传输的数据中包含了和帧首部或者帧尾部相同的数据，则会导致数据传输失败
-解决方法
-    用字节填充法解决
-        发送端对于数据中出现的控制字符（帧首部或者帧尾部）时会在前面插入一个esc字符（其16进制编码时1b）
-        接收端做法就是接收端的数据链路层在将数据送往网络层之前删除插入的转义字符
-        如果数据中出现了esc转义字符则在转移字符前在加一个转义字符当接收端接受时再去掉</code></pre><h3 id="差错控制"><a href="#差错控制" class="headerlink" title="差错控制"></a>差错控制</h3><h4 id="CRC冗余检验：常用的检错技术"><a href="#CRC冗余检验：常用的检错技术" class="headerlink" title="CRC冗余检验：常用的检错技术"></a>CRC冗余检验：常用的检错技术</h4><pre><code>要做到&quot;可靠传输&quot;必须再加上确认机制和重传机制
-crc是一种无比特差错，而不是无传输差错
-不纠错 直接扔掉
-对于一个数据段选一个除数然后进行除法运算最后取余数 （fcs：帧检验序列）
-接收端接收数据时再次根据除数相除，得到余数最后为0表示传输数据的过程中没有出错
-
-意思就是如果主机A向主机B发送数据，再发送过程中产生了数据丢失，导致crc检测出错误
-后，主机B会要求主机A重新传输一次，而不是在路由器上重新发送一次数据
-
-但是有可能会出现错误后导致余数还是为0；还是会出现错误的判断，不太可靠。</code></pre><h2 id="点到点的数据通信"><a href="#点到点的数据通信" class="headerlink" title="点到点的数据通信"></a>点到点的数据通信</h2><pre><code>不纠错 ，错了丢掉
-采用了ppp协议
-组成：NCP网络控制协议：允许在点到点连接上使用多种网络层协议
-    LCP链路控制协议：建立并维护数据链路连接
-    HDLC
-如果传输的是字节则采用字节填充的方式
-如果传输的是比特流则是出现连续的5个1后在后面插入一个0的方式。</code></pre><h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><pre><code>优点：不用划分信道
-缺点：在一个通信链路上只能有一个接收方和发送方即会占用信道
-    信息不安全</code></pre><h3 id="载波监听多点接入-碰撞检测-以太网使用csma-cd协议"><a href="#载波监听多点接入-碰撞检测-以太网使用csma-cd协议" class="headerlink" title="载波监听多点接入/碰撞检测 以太网使用csma/cd协议"></a>载波监听多点接入/碰撞检测 以太网使用csma/cd协议</h3><pre><code>多点接入表示计算机以多点接入的方式连接在一根总线上
-载波监听：指每一个站在发送数据之前要先检测一下总线上是否有其他计算机在发送数据，如果有就暂时不发送数据，以免发生碰撞。
-发生碰撞时 都会暂停发送然后等一段随机时间重新发送。
-使用csma/cd不能进行全双工通信，只能进行半双工通信
-以太网规定了最短有效帧的长度是64字节</code></pre><h3 id="媒体接入控制子层mac"><a href="#媒体接入控制子层mac" class="headerlink" title="媒体接入控制子层mac"></a>媒体接入控制子层mac</h3><pre><code>mac地址：硬件地址，物理地址全球唯一</code></pre><h3 id="使用了集线器进行组网仍是一个总线网还是使用csma-ca协议"><a href="#使用了集线器进行组网仍是一个总线网还是使用csma-ca协议" class="headerlink" title="使用了集线器进行组网仍是一个总线网还是使用csma/ca协议"></a>使用了集线器进行组网仍是一个总线网还是使用csma/ca协议</h3><h3 id="信道利用率"><a href="#信道利用率" class="headerlink" title="信道利用率"></a>信道利用率</h3><h3 id="mac帧格式：min-目的地址6-源地址6-类型2-数据46-1500-帧检验序列（fcs）4-64"><a href="#mac帧格式：min-目的地址6-源地址6-类型2-数据46-1500-帧检验序列（fcs）4-64" class="headerlink" title="mac帧格式：min=目的地址6+源地址6+类型2+数据46-1500+帧检验序列（fcs）4=64"></a>mac帧格式：min=目的地址6+源地址6+类型2+数据46-1500+帧检验序列（fcs）4=64</h3><pre><code>数据到物理层会在头部插入8字节的前同步码加帧开始定界符</code></pre><h3 id="网桥-：工作在数据链路层"><a href="#网桥-：工作在数据链路层" class="headerlink" title="网桥 ：工作在数据链路层"></a>网桥 ：工作在数据链路层</h3><pre><code>可以分割冲突域
-存储转发增加了传输时延</code></pre><h3 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h3><pre><code>相当于一个高速网桥
-用户独享带宽
-数据安全
-不会产生冲突可以实现全双工通信</code></pre><h3 id="生成树算法"><a href="#生成树算法" class="headerlink" title="生成树算法"></a>生成树算法</h3><h2 id="虚拟局域网VLAN-一个广播域-一个子网"><a href="#虚拟局域网VLAN-一个广播域-一个子网" class="headerlink" title="虚拟局域网VLAN=一个广播域=一个子网"></a>虚拟局域网VLAN=一个广播域=一个子网</h2>
-          
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">-计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-计算机网络（二）：物理层" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E7%89%A9%E7%90%86%E5%B1%82/" target="_blank">计算机网络（二）：物理层</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E7%89%A9%E7%90%86%E5%B1%82/" class="archive-article-date">
-        <time datetime="2020-04-14T09:45:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-        <h1 id="第二章-物理层"><a href="#第二章-物理层" class="headerlink" title="第二章 物理层"></a>第二章 物理层</h1><p>&lt;!- more -&gt;</p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><pre><code>解决计算机如何和在各种传输介质上传输比特流</code></pre><h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><pre><code>信道：表示向一个方向传输信息的媒体
-单工通信：只能一个方向的通信，没有反方向的交互。广播电视台
-半双工通信：通信双方都可发送信息但是不能同时发送信息 对讲机，
-全双工通信：通信双方都可以发送数据也可以同时收发 电话
-基带信号：基本频带信号，没经过处理的数据
-带通信号：经过处理的
-调制方式：
-    调幅
-    调频
-    调相
-
-导向传输媒体：在具体的物体上传输：双绞线，同轴电缆，光纤等
-非导向传输媒体：指的是自由空间内</code></pre><h2 id="物理层设备"><a href="#物理层设备" class="headerlink" title="物理层设备"></a>物理层设备</h2><pre><code>集线器：发达信号和重发的作用，扩大网络的传输范围 是一个大的冲突域：半双工不同时收发数据，不安全</code></pre><h2 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h2><pre><code>频分复用：打电话
-时分复用技术：容易造成资源浪费
-波分复用：可以理解成光的频分复用
-码分复用
-    每一个比特时间划分为m个短的时间间隔，称为码片
-宽带接入技术
-管线同轴混合技术
-光纤到户</code></pre>
-          
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">-计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E7%89%A9%E7%90%86%E5%B1%82/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-计算机网络（一）：概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E6%A6%82%E8%BF%B0/" target="_blank">计算机网络（一）：概述 </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E6%A6%82%E8%BF%B0/" class="archive-article-date">
-        <time datetime="2020-04-14T09:45:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-        <h1 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h1><p>&lt;!- more -&gt;</p>
-<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><pre><code>连通性：连通彼此，交换信息
-共享：信息共享，软硬件共享</code></pre><h2 id="因特网"><a href="#因特网" class="headerlink" title="因特网"></a>因特网</h2><pre><code>网络：许多计算机连接在一起
-互联网：internet 许多网络连接在一起
-因特网：Internet 全球最大的一个互联网</code></pre><p>ISP：internet服务提供商</p>
-<h2 id="因特网的组成"><a href="#因特网的组成" class="headerlink" title="因特网的组成"></a>因特网的组成</h2><pre><code>核心部分：
-    实现数据通信
-边缘部分：
-    客户/服务器模式
-        客户机向服务器发送请求，服务器向客户机提供服务。
-    对等模式：p2p
-        每个主机都可以作为服务器或客户机</code></pre><h3 id="电路交换方式：面向连接"><a href="#电路交换方式：面向连接" class="headerlink" title="电路交换方式：面向连接"></a>电路交换方式：面向连接</h3><pre><code>两个电话需要对话时首先会建立连接，进行通话 通话完成后会释放连接
-适用于数据量大的实时性传输
-核心路由之间可以使用电路交换</code></pre><h3 id="分组交换方式-不需要建立连接"><a href="#分组交换方式-不需要建立连接" class="headerlink" title="分组交换方式 不需要建立连接"></a>分组交换方式 不需要建立连接</h3><pre><code>将发送端发送的报文分成多个分组，并加上首部（包含接收端和发送端等相关信息）
-适用于internet
-路由器的存储转发功能
-    数据到达每个路由器时会先暂存一段时间 然后选择最佳路径进行传输
-分组交换优点：高效，灵活，迅速，可靠
-缺点：时延大，开销大</code></pre><h3 id="报文交换-不分段"><a href="#报文交换-不分段" class="headerlink" title="报文交换 不分段"></a>报文交换 不分段</h3><h2 id="计算机网络的定义"><a href="#计算机网络的定义" class="headerlink" title="计算机网络的定义"></a>计算机网络的定义</h2><pre><code>一些相互连接的，自治的计算机的集合。</code></pre><h2 id="类别"><a href="#类别" class="headerlink" title="类别"></a>类别</h2><p>   根据作用范围划分：广域网（WAN）城域网（MAN）局域网（LAN）<br>        新理解：使用了广域网技术的称为广域网：花钱买服务，花钱买带宽<br>                使用了局域网技术的称为局域网：自己买设备，自己维护 带宽固定<br>   根据使用者划分：公用网，专用网<br>   根据拓扑结构：总线型 环形 星型 环形 树状 网状<br>   根据交换方式：电路交换 报文交换 分组交换<br>   根据工作方式：资源子网 通信子网 接入网</p>
-<h2 id="计算机网络的性能"><a href="#计算机网络的性能" class="headerlink" title="计算机网络的性能"></a>计算机网络的性能</h2><h3 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h3><h4 id="速率："><a href="#速率：" class="headerlink" title="速率："></a>速率：</h4><pre><code>连接在计算机网络上的主机在数字信道上传送数据位数的速率，也称为比特率</code></pre><h4 id="带宽："><a href="#带宽：" class="headerlink" title="带宽："></a>带宽：</h4><pre><code>数字信道所能传输的最高速率</code></pre><h4 id="吞吐量："><a href="#吞吐量：" class="headerlink" title="吞吐量："></a>吞吐量：</h4><pre><code>单位时间内通过某个网络的数据量</code></pre><h4 id="时延："><a href="#时延：" class="headerlink" title="时延："></a>时延：</h4><pre><code>发送时延：数据块长度/信道带宽
-传播时延：信道长度/信号在信道上的传播速率
-处理时延：
-排队时延：
-比如说排队买票,排队时所画的时间称为排队时延 买票时所画的时间称为处理时延</code></pre><h4 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h4><pre><code>传播时延*带宽</code></pre><h4 id="往返时间"><a href="#往返时间" class="headerlink" title="往返时间"></a>往返时间</h4><pre><code>发送方发送数据开始-接收端接收到时间结束</code></pre><h4 id="利用率："><a href="#利用率：" class="headerlink" title="利用率："></a>利用率：</h4><pre><code>信道利用率：有数据 通过的时间/数据通过时间</code></pre><h2 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构"></a>计算机网络体系结构</h2><pre><code>OSI七层模型
-应用层：产生网络流量能够和用户交互的应用层程序
-表现层：加密 压缩 开发人员考虑的问题
-会话层：客户端和服务器端建立的会话 查木马 netstat-nb
-传输层：可靠传输建立会话 不可靠传输不建立会话 流量控制
-网络层：ip地址编址 选择最佳路径
-数据链路层：数据如何封装 添加物理层地址 MAC
-物理层：电压接口标准
-网络排除：从底层到高层逐一排查
-
-tcp/ip四层模型
-应用层：包含OSI参考模型中的应用层表现层会话层
-传输层
-网络层
-网络接口层：包含数据链路层和物理层
-
-实体：交换信息的硬件或软件进程
-协议：控制两个对等实体通信的规则
-服务：底层向上层提供服务
-服务访问点：相邻两层实体间交换信息的地方
-
-五层协议对应的数据单元
-应用层--传输数据单元（PDU）
-运输层--报文
-网络层--ip数据报（ip分组）
-数据链路层-数据帧
-物理层--比特--二进制位</code></pre>
-          
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">-计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E6%A6%82%E8%BF%B0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -1532,8 +500,8 @@ tcp/ip四层模型
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
