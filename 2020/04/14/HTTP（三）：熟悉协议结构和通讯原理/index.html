@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="第三章 熟悉结构与通讯原理字符集与编码解码二进制数使用一套编码方式转换成字符编码与解码的过程相反浏览器会对URL中非ASCII编码的内容采用%编码的方式进行编码HTTP协议的身份认证BASIC认证（基本认证）客户机发送请求后，服务器返回状态码401，客户输入认证信息经过BASE64编码后再次向服务器发出请求，如果认证信息通过服务器返回200状态码如果不通过，返回401状态码DIGEST认证（摘要认">
+  <meta name="description" content="第三章 熟悉结构与通讯原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP（三）：熟悉协议结构和通讯原理">
 <meta property="og:url" content="https://wangcunzhi.github.io/2020/04/14/HTTP%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E7%86%9F%E6%82%89%E5%8D%8F%E8%AE%AE%E7%BB%93%E6%9E%84%E5%92%8C%E9%80%9A%E8%AE%AF%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="wangcunzhi">
-<meta property="og:description" content="第三章 熟悉结构与通讯原理字符集与编码解码二进制数使用一套编码方式转换成字符编码与解码的过程相反浏览器会对URL中非ASCII编码的内容采用%编码的方式进行编码HTTP协议的身份认证BASIC认证（基本认证）客户机发送请求后，服务器返回状态码401，客户输入认证信息经过BASE64编码后再次向服务器发出请求，如果认证信息通过服务器返回200状态码如果不通过，返回401状态码DIGEST认证（摘要认">
+<meta property="og:description" content="第三章 熟悉结构与通讯原理">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-14T09:53:26.000Z">
-<meta property="article:modified_time" content="2020-04-14T09:55:16.905Z">
+<meta property="article:modified_time" content="2020-04-14T09:58:27.664Z">
 <meta property="article:author" content="wangcunzhi">
 <meta property="article:tag" content="-HTTP">
 <meta name="twitter:card" content="summary">
@@ -219,7 +219,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-        <h1 id="第三章-熟悉结构与通讯原理"><a href="#第三章-熟悉结构与通讯原理" class="headerlink" title="第三章 熟悉结构与通讯原理"></a>第三章 熟悉结构与通讯原理</h1><h2 id="字符集与编码"><a href="#字符集与编码" class="headerlink" title="字符集与编码"></a>字符集与编码</h2><h3 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h3><pre><code>二进制数使用一套编码方式转换成字符</code></pre><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><pre><code>与解码的过程相反</code></pre><h3 id="浏览器会对URL中非ASCII编码的内容采用-编码的方式进行编码"><a href="#浏览器会对URL中非ASCII编码的内容采用-编码的方式进行编码" class="headerlink" title="浏览器会对URL中非ASCII编码的内容采用%编码的方式进行编码"></a>浏览器会对URL中非ASCII编码的内容采用%编码的方式进行编码</h3><h2 id="HTTP协议的身份认证"><a href="#HTTP协议的身份认证" class="headerlink" title="HTTP协议的身份认证"></a>HTTP协议的身份认证</h2><h3 id="BASIC认证（基本认证）"><a href="#BASIC认证（基本认证）" class="headerlink" title="BASIC认证（基本认证）"></a>BASIC认证（基本认证）</h3><pre><code>客户机发送请求后，服务器返回状态码401，客户输入认证信息经过BASE64编码后再次向服务器发出请求，如果认证信息通过服务器返回200状态码如果不通过，返回401状态码</code></pre><h3 id="DIGEST认证（摘要认证）"><a href="#DIGEST认证（摘要认证）" class="headerlink" title="DIGEST认证（摘要认证）"></a>DIGEST认证（摘要认证）</h3><pre><code>客户机发送请求后，服务器返回状态码401和一个临时的质询码，客户输入认证信息经过加密后再次向服务器发出请求，如果认证信息通过服务器返回200状态码如果不通过，返回401状态码</code></pre><h3 id="SSL客户端认证"><a href="#SSL客户端认证" class="headerlink" title="SSL客户端认证"></a>SSL客户端认证</h3><pre><code>SSL客户端认证是借由HTTPS的 客户端完成认证的方式，凭借客户端证书认证，服务器可确认访问是否来自已经登录的客户端。</code></pre><h3 id="FromBase认证（基于表单认证）"><a href="#FromBase认证（基于表单认证）" class="headerlink" title="FromBase认证（基于表单认证）"></a>FromBase认证（基于表单认证）</h3><h2 id="http的长连接与短连接"><a href="#http的长连接与短连接" class="headerlink" title="http的长连接与短连接"></a>http的长连接与短连接</h2><pre><code>http协议是基于请求/响应模式的，因此只要服务器给了响应，本次http请求就结束了。
+        <h1 id="第三章-熟悉结构与通讯原理"><a href="#第三章-熟悉结构与通讯原理" class="headerlink" title="第三章 熟悉结构与通讯原理"></a>第三章 熟悉结构与通讯原理</h1><a id="more"></a>
+<h2 id="字符集与编码"><a href="#字符集与编码" class="headerlink" title="字符集与编码"></a>字符集与编码</h2><h3 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h3><pre><code>二进制数使用一套编码方式转换成字符</code></pre><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><pre><code>与解码的过程相反</code></pre><h3 id="浏览器会对URL中非ASCII编码的内容采用-编码的方式进行编码"><a href="#浏览器会对URL中非ASCII编码的内容采用-编码的方式进行编码" class="headerlink" title="浏览器会对URL中非ASCII编码的内容采用%编码的方式进行编码"></a>浏览器会对URL中非ASCII编码的内容采用%编码的方式进行编码</h3><h2 id="HTTP协议的身份认证"><a href="#HTTP协议的身份认证" class="headerlink" title="HTTP协议的身份认证"></a>HTTP协议的身份认证</h2><h3 id="BASIC认证（基本认证）"><a href="#BASIC认证（基本认证）" class="headerlink" title="BASIC认证（基本认证）"></a>BASIC认证（基本认证）</h3><pre><code>客户机发送请求后，服务器返回状态码401，客户输入认证信息经过BASE64编码后再次向服务器发出请求，如果认证信息通过服务器返回200状态码如果不通过，返回401状态码</code></pre><h3 id="DIGEST认证（摘要认证）"><a href="#DIGEST认证（摘要认证）" class="headerlink" title="DIGEST认证（摘要认证）"></a>DIGEST认证（摘要认证）</h3><pre><code>客户机发送请求后，服务器返回状态码401和一个临时的质询码，客户输入认证信息经过加密后再次向服务器发出请求，如果认证信息通过服务器返回200状态码如果不通过，返回401状态码</code></pre><h3 id="SSL客户端认证"><a href="#SSL客户端认证" class="headerlink" title="SSL客户端认证"></a>SSL客户端认证</h3><pre><code>SSL客户端认证是借由HTTPS的 客户端完成认证的方式，凭借客户端证书认证，服务器可确认访问是否来自已经登录的客户端。</code></pre><h3 id="FromBase认证（基于表单认证）"><a href="#FromBase认证（基于表单认证）" class="headerlink" title="FromBase认证（基于表单认证）"></a>FromBase认证（基于表单认证）</h3><h2 id="http的长连接与短连接"><a href="#http的长连接与短连接" class="headerlink" title="http的长连接与短连接"></a>http的长连接与短连接</h2><pre><code>http协议是基于请求/响应模式的，因此只要服务器给了响应，本次http请求就结束了。
 所以说http的长连接与短连接本质上是TCP的长连接与短连接
 http/1.0中默认使用的是短连接，即浏览器和服务器每进行一次http操作，就建立一次连接，结束连接就会释放
 http/1.1中默认使用的是长连接。会在一段时间内保持着连接</code></pre><h2 id="http中介之代理"><a href="#http中介之代理" class="headerlink" title="http中介之代理"></a>http中介之代理</h2><pre><code>对于服务器来说扮演的是客户端的角色
@@ -584,15 +585,15 @@ Content-Range:bytes(unit=first byte pos)-[last byte pos]/[entity legth]</code></
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">-数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">-spring</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">-操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">-数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -197,65 +197,11 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-        <h1 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h1><p>&lt;!- more -&gt;</p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><pre><code>是指控制和管理整个计算机的硬件和软件资源，并合理的组织调度计算机的工作和资源分配；以提供给用户和其它软件方便的接口和环境；他是计算机系统中最基本的系统软件。
-1.操作系统是系统资源的管理者。
-2.向上层提供方便易用的服务
-3.是最接近硬件的一层软件
-4.执行一个程序前需要将该程序放到内存中，才可以被CPU处理</code></pre><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><pre><code>向上层提供方便易用的服务（封装的思想）
-    CPU管理
-    存储器管理
-    文件管理
-    设备管理
-GUI：图形化用户接口
-联机命令接口=交互式命令接口（用户说一句操作系统跟着做一句）
-脱机命令接口=批处理命令接口（用户说一堆系统做一堆）
-程序接口：可以在程序中进行系统调用来使用程序接口。普通用户不能直接使用程序接口，只能通过代码间接使用。
-    c调用print函数
-    系统调用（广义指令）类似于函数调用，是应用程序请求操作系统服务的唯一方式
-没有任何软件支持的计算机称为裸机。
-操作系统需要实现对硬件机器的扩展。</code></pre><h2 id="操作系统的四个特征"><a href="#操作系统的四个特征" class="headerlink" title="操作系统的四个特征"></a>操作系统的四个特征</h2><pre><code>两个最基本特征互为存在条件</code></pre><h3 id="并发-最基本特征"><a href="#并发-最基本特征" class="headerlink" title="并发 最基本特征"></a>并发 最基本特征</h3><pre><code>并发：指两个或多个事件在同一时间间隔内发生。这些事件在宏观上是同时发生的，但在微观上是交替发生的。
-并行：指两个或多个事件在同一时刻同时发生。
-操作系统并发性是指计算机系统中同时运行着多个程序，在宏观上这些程序是同时运行者的，但在微观上看是交替运行的。
-
-单核CPU同一时刻只能执行一个程序，各个程序只能并发地执行。
-多核CPU同一时刻可以执行多个程序，多个程序可以并行的执行。</code></pre><h3 id="共享-最基本特征"><a href="#共享-最基本特征" class="headerlink" title="共享 最基本特征"></a>共享 最基本特征</h3><pre><code>即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用
-两种方式
-    互斥共享
-        这一个时间段内只允许一个进程访问该资源
-            ·摄像头
-    同时共享
-        这一个时间段内可以有多个进程访问该资源
-            ·扬声器
-
-联系：如果失去了并发，系统中只有一个程序在运行，就是去了共享的意义
-    如果失去了共享，则两个或多个程序不能同时访问资源，无法执行相应功能，也就无法实现并发</code></pre><h3 id="虚拟"><a href="#虚拟" class="headerlink" title="虚拟"></a>虚拟</h3><pre><code>是指把物理上的实体变为若干个逻辑上的对应物。物理实体前者是实际存在的，逻辑上对应物是用户感受到的。
-
-虚拟技术：空分复用技术（虚拟存储器技术）/时分复用技术（虚拟处理器）
-
-没有了并发性就谈不上虚拟性。</code></pre><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><pre><code>在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而是走走停停，已不可预知的速度向前推进，这就是程序的异步性。
-
-只有系统拥有并发性才可能回到只异步</code></pre><h2 id="发展和分类"><a href="#发展和分类" class="headerlink" title="发展和分类"></a>发展和分类</h2><pre><code>手工操作阶段
-单道批处理系统
-多道批处理系统
-分时操作系统：解决了人机交互问题，不能优先处理紧急任务
-实时操作系统：及时性可靠性</code></pre><h2 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h2><pre><code>指令就是指处理器能识别执行的最基本命令（机器指令）
-内核程序与应用程序
-内核态（管态）与用户态（目态）
-cpu中有一个寄存器程序状态寄存器PSW用来表示计算机处于内核态还是用户态，1表示内核态，0表示用户态。
-内核态-&gt;用户态：执行一条特权指令--修改PSW的标志位为用户态，这个动作意味着操作系统将主动让出CPU的使用权。
-用户态-&gt;内核态：由中断引发，硬件自动完成变态过程，触发中断信号就意味着操作系统将强行夺回CPU的使用权。</code></pre><h2 id="中断和异常"><a href="#中断和异常" class="headerlink" title="中断和异常"></a>中断和异常</h2><h3 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h3><pre><code>作用：会是CPU由用户态转为内核态，是操作系统夺回对CPU使用权的唯一途径。
-如果没有中断机制，那么一旦应用程序上CPU运行，CPU就会一直运行这个应用程序，也就没有并发一说。</code></pre><h4 id="内中断（异常）"><a href="#内中断（异常）" class="headerlink" title="内中断（异常）"></a>内中断（异常）</h4><pre><code>与当前执行的指令有关，中断信号来源于CPU的内部。
-调用特权指令或执行陷入指令会产生内中断
-陷入：由陷入指令引发，是应用程序故意引发的。（系统调用）
-故障：由错误条件引起的，可能被内核程序修复。内核程序修复故障后会把CPU使用权还给应用程序，让他继续执行下去，如：缺页故障
-终止：由致命错误引起的，内核程序无法修复该错误，因此一般不再将CPU使用权还给引发终止的应用程序，而是直接终止该应用程序。如被除数为0，非法使用特权指令</code></pre><h4 id="外中断"><a href="#外中断" class="headerlink" title="外中断"></a>外中断</h4><pre><code>与当前执行的指令无关，中断信号来源于CPU的外部。
-时钟中断
-IO设备中断</code></pre><h3 id="中断机制的基本原理"><a href="#中断机制的基本原理" class="headerlink" title="中断机制的基本原理"></a>中断机制的基本原理</h3><pre><code>不同的中断信号，需要不同的中断处理程序来处理。当CPU检测到中断信号后，会根据中断信号的类型去查询中断向量表，以此来寻找相应的中断处理程序在内存中存放的位置。</code></pre><h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><pre><code>系统调用是操作系统提供给应用程序（程序员）使用的接口，可以理解为一种可供应用程序调用的特殊函数，应用程序可以通过系统调用来请求获得操作系统的内核服务。</code></pre><h3 id="什么功能需要用到系统调用"><a href="#什么功能需要用到系统调用" class="headerlink" title="什么功能需要用到系统调用"></a>什么功能需要用到系统调用</h3><pre><code>凡是与共享资源有关的操作（如存储分配，IO操作，文件管理），都必须通过系统调用的方式向操作系统提出请求服务，由操作系统内核代为完成，这样可以保证系统的稳定性与安全性，防止用户进行非法操作。</code></pre><h3 id="系统调用的过程"><a href="#系统调用的过程" class="headerlink" title="系统调用的过程"></a>系统调用的过程</h3><pre><code>传递系统调用参数
-执行陷入指令
-执行相应的请求内核程序处理系统调用
-返回应用程序</code></pre>
-          
+      <h1 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h1>
+      
+      <a class="article-more-a" href="/2020/04/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E6%A6%82%E8%BF%B0/#more">more >></a>
+      
+        
     
 
     
@@ -338,101 +284,11 @@ IO设备中断</code></pre><h3 id="中断机制的基本原理"><a href="#中断
   
   <div class="article-entry" itemprop="articleBody">
     
-        <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><pre><code>byte/8
-short/16
-int/
-lang/64
-float/32
-double/64
-char/16
-boolean~
-*boolen只能存储一个值true或false，可以用1bit来存储但具体大小没有明确规定，jvm在编译时期会将boolean转换为int类型的1或0来表示true或false，jvm支持boolean数组，但是是通过读写byte数组来实现的；</code></pre><h2 id="包装类型"><a href="#包装类型" class="headerlink" title="包装类型"></a>包装类型</h2><pre><code>基本类型都有对应的包装类型（定义了一个类），基本类型与包装类型之间的转换是通过自动拆箱与装箱来完成的。</code></pre><h2 id="缓存池"><a href="#缓存池" class="headerlink" title="缓存池"></a>缓存池</h2><pre><code>使用new创建一个Integer对象和使用valueOf()创建对象的区别
-当要创建的数值存在于缓存池中时，valueOf调用的是同一个对象的引用
-而new时则是在堆空间中开辟空间存储数值。调用的是不同对象的引用。
-    例：Integer x = new Integer(123);
-        Integer y = new Integer(123);
-        System.out.println(x == y);    // false
-        Integer z = Integer.valueOf(123);
-        Integer k = Integer.valueOf(123);
-        System.out.println(z == k);   // true</code></pre><h3 id="源码分析：valueOf"><a href="#源码分析：valueOf" class="headerlink" title="源码分析：valueOf"></a>源码分析：valueOf</h3><pre><code>/*
-    static final int low = -128;表示的是缓存池总的下界是-128
-    static final int high;//此时的上界默认是在静态代码块中定义的127但是可以在启动jvm的时候通过-XX:AutoBoxCacheMax=&lt;size&gt;来给high赋值指定上界
-
-    意思是：如果在缓存池的范围内直接返回缓存池中的对象所以会调用同一对象的引用。反之，则new一个对象出来。
-
-    基本类型对应的缓冲池如下：
-    boolean values true and false
-    all byte values
-    short values between -128 and 127
-    int values between -128 and 127
-    char in the range \u0000 to \u007F
-    自动装箱：会调用valueOf方法
-*/
-public static Integer valueOf(int i) {
-        if (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)
-            return IntegerCache.cache[i + (-IntegerCache.low)];
-        return new Integer(i);
-    }  
-***对于浮点类型
-/*
-实现方法有所不同，原因是浮点类型在某一范围内的取值是不确定的，无法建立池，所以只能通过new的方式。
-*/
-public static Double valueOf(String s) throws NumberFormatException {
-    return new Double(parseDouble(s));
-}</code></pre><h3 id="源码分析：Integer的缓存池–实质是一个静态内部类。"><a href="#源码分析：Integer的缓存池–实质是一个静态内部类。" class="headerlink" title="源码分析：Integer的缓存池–实质是一个静态内部类。"></a>源码分析：Integer的缓存池–实质是一个静态内部类。</h3><pre><code>/*
-    可以看到在IntegerCache内部定义好了三个静态成员
-    分别表示下界，上界，与池
-    由此源码也可以看出为什么valueOf会return IntegerCache.cache[i + (-IntegerCache.low)];
-    主要是因为
-    int j = low;//=-128。执行下面代码最后得到取值范围是-128-127
-    for(int k = 0; k &lt; cache.length; k++)
-        cache[k] = new Integer(j++);
-
-*/
-private static class IntegerCache {
-        static final int low = -128;
-        static final int high;
-        static final Integer cache[];
-
-        static {
-            // high value may be configured by property
-            int h = 127;
-            String integerCacheHighPropValue =
-                VM.getSavedProperty(&quot;java.lang.Integer.IntegerCache.high&quot;);
-            if (integerCacheHighPropValue != null) {
-                try {
-                    int i = parseInt(integerCacheHighPropValue);
-                    i = Math.max(i, 127);
-                    // Maximum array size is Integer.MAX_VALUE
-                    h = Math.min(i, Integer.MAX_VALUE - (-low) -1);
-                } catch( NumberFormatException nfe) {
-                    // If the property cannot be parsed into an int, ignore it.
-                }
-            }
-            high = h;
-
-            cache = new Integer[(high - low) + 1];
-            int j = low;
-            for(int k = 0; k &lt; cache.length; k++)
-                cache[k] = new Integer(j++);
-
-            // range [-128, 127] must be interned (JLS7 5.1.7)
-            assert IntegerCache.high &gt;= 127;
-        }
-
-        private IntegerCache() {}
-    }</code></pre><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><pre><code>对于有byte类型的取值范围
-    因为一个字节占8bit，由于计算机只能识别二进制，即0和1。所以规定第一位是符号位，1表示负数，0表示正数
-
-    二进制：1 111 1111=十进制：-127
-    执行+1后会导致溢出
-    所以会变成 0 000 0000
-    所以索引1位置存在的是0
-    当j=127时二进制为0 111 1111
-    执行+1也会导致溢出1 000 0000
-    但是为了合理利用资源不同时用俩个不同的二进制码表示同一个数字，所以此时这个数值表示的是-128
-    这就是取值范围的由来</code></pre>
-          
+      <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1>
+      
+      <a class="article-more-a" href="/2020/04/08/JavaSE-%E4%B8%80-%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#more">more >></a>
+      
+        
     
 
     
@@ -1130,15 +986,15 @@ private static class IntegerCache {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">-数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">-spring</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">-操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">-数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
