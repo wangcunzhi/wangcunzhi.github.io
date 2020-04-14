@@ -18,7 +18,7 @@
 <meta property="og:description" content="线性表">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-08T03:07:34.000Z">
-<meta property="article:modified_time" content="2020-04-08T03:41:09.868Z">
+<meta property="article:modified_time" content="2020-04-08T04:13:47.028Z">
 <meta property="article:author" content="wangcunzhi">
 <meta property="article:tag" content="-数据结构">
 <meta name="twitter:card" content="summary">
@@ -199,7 +199,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">801字</span>
+      <span class="post-count">805字</span>
     </span>
   </span>
 
@@ -224,178 +224,178 @@
 尾节点：表示最后一个节点
 前驱：表示某个节点的前一个节点
 后继：表示某个节点的后一个节点</code></pre><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><pre><code>数组是一种顺序存储的线性表，所有元素的内存地址是连续的。</code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><pre><code>int array[]=new int[]{1,2,3};
-*其中 变量是在栈空间中开辟的，因为使用了new关键字所以数组的真实数据存储在堆空间中，而栈空间的开辟的变量实际存储的是数组的首地址。</code></pre><h2 id="动态数组：模仿ArrayList实现"><a href="#动态数组：模仿ArrayList实现" class="headerlink" title="动态数组：模仿ArrayList实现"></a>动态数组：模仿ArrayList实现</h2><pre><code>public class MyArrayList&lt;E&gt; {
-private int size;//存放数组中的元素个数
-private E[] elements;//存放数组中的数据
-private static final int DEFAULT_SIZE=10;//数组初始化默认大小
-private static final int ELEMENTS_NOT_FOUND=-1;//元素查找不到返回数值
+*其中 变量是在栈空间中开辟的，因为使用了new关键字所以数组的真实数据存储在堆空间中，而栈空间的开辟的变量实际存储的是数组的首地址。</code></pre><h2 id="动态数组：模仿ArrayList实现"><a href="#动态数组：模仿ArrayList实现" class="headerlink" title="动态数组：模仿ArrayList实现"></a>动态数组：模仿ArrayList实现</h2><pre><code>public class MyArrayList&lt;E&gt; implements MyList {
+        private int size;//存放数组中的元素个数
+        private E[] elements;//存放数组中的数据
+        private static final int DEFAULT_SIZE=10;//数组初始化默认大小
+        private static final int ELEMENTS_NOT_FOUND=-1;//元素查找不到返回数值
 
-/**
-* 根据传入值设置数组大小如果数值小于默认数值直接设置默认数值大小
-* @param size
-*/
-public MyArrayList(int size){
-        size=(size&lt;DEFAULT_SIZE)?DEFAULT_SIZE:size;
-        elements= (E[]) new Object[size];
-}
-
-/**
-* 如果调用的是空参构造直接创建默认大小的数组
-*/
-public MyArrayList(){
-        this(DEFAULT_SIZE);
-}
-
-/**
-* 数组越界时的处理方式，抛出数组越界异常
-*/
-public void outOfBound(){
-        throw new IndexOutOfBoundsException();
-}
-
-/**
-* 判断传入索引是否合法
-* @param index
-*/
-public void rangeCheck(int index){
-        if (index&gt;=size||index&lt;0){
-        outOfBound();
+        /**
+        * 根据传入值设置数组大小如果数值小于默认数值直接设置默认数值大小
+        * @param size
+        */
+        public MyArrayList(int size){
+                size=(size&lt;DEFAULT_SIZE)?DEFAULT_SIZE:size;
+                elements= (E[]) new Object[size];
         }
-}
 
-/**
-* 添加操作时判断是否合法
-* @param index
-*/
-public void rangeCheckForAdd(int index){
-        if (index&gt;size||index&lt;0){
-        outOfBound();
+        /**
+        * 如果调用的是空参构造直接创建默认大小的数组
+        */
+        public MyArrayList(){
+                this(DEFAULT_SIZE);
         }
-}
-public int size() {
-        return size;
-}
+
+        /**
+        * 数组越界时的处理方式，抛出数组越界异常
+        */
+        public void outOfBound(){
+                throw new IndexOutOfBoundsException();
+        }
+
+        /**
+        * 判断传入索引是否合法
+        * @param index
+        */
+        public void rangeCheck(int index){
+                if (index&gt;=size||index&lt;0){
+                        outOfBound();
+                }
+        }
+
+        /**
+        * 添加操作时判断是否合法
+        * @param index
+        */
+        public void rangeCheckForAdd(int index){
+                if (index&gt;size||index&lt;0){
+                outOfBound();
+                }
+        }
+        public int size() {
+                return size;
+        }
 
 
-public boolean isEmpty() {
-        return size==0;
-}
+        public boolean isEmpty() {
+                return size==0;
+        }
 
 
-public boolean contains(E element) {
-        return indexOf(element)!=ELEMENTS_NOT_FOUND;
-}
+        public boolean contains(Object element) {
+                return indexOf(element)!=ELEMENTS_NOT_FOUND;
+        }
 
 
-public void add(E element) {
-        add(size,element);
-}
+        public void add(Object element) {
+                add(size,element);
+        }
 
-public E get(int index) {
+        public E get(int index) {
+                rangeCheck(index);
+                return elements[index];
+        }
+
+
+        public E set(int index, Object element) {
+                rangeCheck(index);
+                E old = get(index);
+                elements[index]= (E) element;
+                return old;
+        }
+
+        /**
+        * 范围是index+1-size
+        * 从size开始移动
+        * E[size]=E[size-1]
+        * size--;
+        * 如果设置范围是从index-size会多执行一次运算
+        * @param index
+        * @param element
+        */
+        public void add(int index, Object element) {
+                rangeCheckForAdd(index);
+
+                ensureSize(size+1);
+                for (int i = size; i &gt;index ; i--) {
+                        elements[i]=elements[i-1];
+                }
+                elements[index]= (E) element;
+                size++;
+        }
+
+        /**
+        * 扩容：如果size+1&gt;elements.length，说明需要扩容
+        * @param addSize
+        */
+        private void ensureSize(int addSize) {
+                int oldSize=elements.length;
+                if (oldSize&gt;=addSize) return;
+
+                int newSize=oldSize+(oldSize &gt;&gt; 1);
+                E[] newElements= (E[]) new Object[newSize];
+                for (int i = 0; i &lt; size; i++) {
+                        newElements[i]=elements[i];
+                }
+                elements=newElements;
+                System.out.println(oldSize+&quot;&gt;&gt;&quot;+newSize);
+        }
+
+        /**
+        *范围是从index+1-size-1:共执行size-index-2次
+        * elements[i-1]=elements[i];
+        * 最后执行size--，并把element置为null合并为elements[--size]=null;
+        * 如果范围是index-size-2共执行size-index-2次
+        * elements[i]=elements[i+1];
+        * @param index
+        * @return
+        */
+
+        public E remove(int index) {
         rangeCheck(index);
-        return elements[index];
-}
-
-
-public E set(int index, E element) {
-        rangeCheck(index);
-        E old = get(index);
-        elements[index]=element;
-        return old;
-}
-
-/**
-* 范围是index+1-size
-* 从size开始移动
-* E[size]=E[size-1]
-* size--;
-* 如果设置范围是从index-size会多执行一次运算
-* @param index
-* @param element
-*/
-public void add(int index, E element) {
-        rangeCheckForAdd(index);
-
-        ensureSize(size+1);
-        for (int i = size; i &gt;index ; i--) {
-        elements[i]=elements[i-1];
-        }
-        elements[index]=element;
-        size++;
-}
-
-/**
-* 扩容：如果size+1&gt;elements.length，说明需要扩容
-* @param addSize
-*/
-private void ensureSize(int addSize) {
-        int oldSize=elements.length;
-        if (oldSize&gt;=addSize) return;
-
-        int newSize=oldSize+(oldSize &gt;&gt; 1);
-        E[] newElements= (E[]) new Object[newSize];
-        for (int i = 0; i &lt; size; i++) {
-        newElements[i]=elements[i];
-        }
-        elements=newElements;
-        System.out.println(oldSize+&quot;&gt;&gt;&quot;+newSize);
-}
-
-/**
-*范围是从index+1-size-1:共执行size-index-2次
-* elements[i-1]=elements[i];
-* 最后执行size--，并把element置为null合并为elements[--size]=null;
-* 如果范围是index-size-2共执行size-index-2次
-* elements[i]=elements[i+1];
-* @param index
-* @return
-*/
-
-public E remove(int index) {
-rangeCheck(index);
-        E old = get(index);
-        for (int i = index+1; i &lt;size ; i++) {
-        elements[i-1]=elements[i];
-        }
-        elements[--size]=null;
-        return old;
-}
-
-
-public int indexOf(E element) {
-        if (element==null){
-        for (int i = 0; i &lt; size; i++) {
-                if (elements[i]==null) return i;
-        }
-        }else {
-        for (int i = 0; i &lt; size; i++) {
-                if (elements[i].equals(element)) return i;
-        }
+                E old = get(index);
+                for (int i = index+1; i &lt;size ; i++) {
+                        elements[i-1]=elements[i];
+                }
+                elements[--size]=null;
+                return old;
         }
 
-        return ELEMENTS_NOT_FOUND;
-}
 
-public void clear() {
-        for (int i = 0; i &lt; size; i++) {
-        elements[i]=null;
-        }
-        //直接设置size=0，与清空数组效果相同但是相对于后者来说，前者效率更高
-        size=0;
-}
+        public int indexOf(Object element) {
+                if (element==null){
+                        for (int i = 0; i &lt; size; i++) {
+                                if (elements[i]==null) return i;
+                        }
+                }else {
+                        for (int i = 0; i &lt; size; i++) {
+                                if (elements[i].equals(element)) return i;
+                        }
+                }
 
-@Override
-public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(&quot;size=&quot;).append(size).append(&quot;, [&quot;);
-        for (int i = 0; i &lt;size; i++) {
-        if (i!=0){
-                stringBuilder.append(&quot;, &quot;);
+                return ELEMENTS_NOT_FOUND;
         }
-                stringBuilder.append(elements[i]);
+
+        public void clear() {
+                for (int i = 0; i &lt; size; i++) {
+                        elements[i]=null;
+                }
+                //直接设置size=0，与清空数组效果相同但是相对于后者来说，前者效率更高
+                size=0;
         }
-                stringBuilder.append(&quot;]&quot;);
-                return stringBuilder.toString();
+
+        @Override
+        public String toString() {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append(&quot;size=&quot;).append(size).append(&quot;, [&quot;);
+                for (int i = 0; i &lt;size; i++) {
+                if (i!=0){
+                        stringBuilder.append(&quot;, &quot;);
+                }
+                        stringBuilder.append(elements[i]);
+                }
+                        stringBuilder.append(&quot;]&quot;);
+                        return stringBuilder.toString();
         }
 }</code></pre>
           
@@ -523,6 +523,15 @@ public String toString() {
 
 
 <nav id="article-nav">
+  
+    <a href="/2020/04/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E9%93%BE%E8%A1%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数据结构（三）：链表
+        
+      </div>
+    </a>
   
   
     <a href="/2020/04/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%BB%AA%E8%AE%BA/" id="article-nav-older" class="article-nav-link-wrap">
@@ -688,6 +697,10 @@ public String toString() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-javase</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">-spring</a>
               </li>
              
@@ -836,66 +849,6 @@ public String toString() {
   <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
   
   
-    <script type="text/javascript" src="/plugins/live2d-widget.js/L2Dwidget.min.js"></script>
-<script type="text/javascript">
-  /**
-   * 完整配置请参考：https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init
-   */
-  var pluginModelPath = "assets/", // 模型的文件路径，无需更改
-    pluginRootPath = "/live2d_models/"; // 插件的路径，无需更改
-  //特定的模型json文件名称
-  var modelPathJson = {
-    "epsilon2_1": "Epsilon2.1",
-    "gf": "Gantzert_Felixander",
-    "haru/01": "haru01",
-    "haru/02": "haru02",
-    "nietzsche": "nietzche"
-  }
-
-  
-    var modelName = "shizuku";
-  
-
-  var modelJsonPath = "";
-  if (modelPathJson[modelName]) {
-    modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelPathJson[modelName] +
-      ".model.json";
-  } else {
-    modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelName + ".model.json";
-  }
-  L2Dwidget.init({
-    model: {
-      jsonPath: modelJsonPath
-    },
-    display: {
-       position: "right", 
-       width: 145, 
-       height: 315, 
-       hOffset: 50, 
-      
-    },
-    mobile: {
-       show: false, 
-       scale: 0.6 
-    },
-    react: {
-       opacity: 0.8 
-    }
-  })
-
-</script>
-
-  
-  
-  <script type="text/javascript" src="/lib/snow.js"></script>
-  <script type="text/javascript" src="/lib/jquery-2.1.4.min.js"></script>
-  <script>
-    snow.down();
-    $(window).resize(function() {
-      $("canvas").css("z-index","500").remove();
-      snow.down();
-    });
-  </script>
   
 </body>
 
