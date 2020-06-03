@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="spring（二）：spring基于注解的IOC">
+  <meta name="description" content="spring（二）：spring基于注解的IOC曾经的xml配置&lt;bean id&#x3D;&quot;accountService&quot; class&#x3D;&quot;com.wang.service.impl.AccountServiceImpl&quot;             scope&#x3D;&quot;&quot; init-method&#x3D;&quot;&quot; destroy-method">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring（二）：spring基于注解的IOC">
 <meta property="og:url" content="https://wangcunzhi.github.io/2020/04/07/spring%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9Aspring%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84IOC/index.html">
 <meta property="og:site_name" content="wangcunzhi">
-<meta property="og:description" content="spring（二）：spring基于注解的IOC">
+<meta property="og:description" content="spring（二）：spring基于注解的IOC曾经的xml配置&lt;bean id&#x3D;&quot;accountService&quot; class&#x3D;&quot;com.wang.service.impl.AccountServiceImpl&quot;             scope&#x3D;&quot;&quot; init-method&#x3D;&quot;&quot; destroy-method">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-07T07:16:55.000Z">
-<meta property="article:modified_time" content="2020-04-07T12:15:36.374Z">
+<meta property="article:modified_time" content="2020-04-21T04:49:15.078Z">
 <meta property="article:author" content="wangcunzhi">
 <meta property="article:tag" content="-spring">
 <meta name="twitter:card" content="summary">
@@ -199,7 +199,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">8字</span>
+      <span class="post-count">1.1k字</span>
     </span>
   </span>
 
@@ -208,7 +208,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -219,7 +219,74 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-        <h1 id="spring（二）：spring基于注解的IOC"><a href="#spring（二）：spring基于注解的IOC" class="headerlink" title="spring（二）：spring基于注解的IOC"></a>spring（二）：spring基于注解的IOC</h1>
+        <h1 id="spring（二）：spring基于注解的IOC"><a href="#spring（二）：spring基于注解的IOC" class="headerlink" title="spring（二）：spring基于注解的IOC"></a>spring（二）：spring基于注解的IOC</h1><h2 id="曾经的xml配置"><a href="#曾经的xml配置" class="headerlink" title="曾经的xml配置"></a>曾经的xml配置</h2><pre><code>&lt;bean id=&quot;accountService&quot; class=&quot;com.wang.service.impl.AccountServiceImpl&quot;
+            scope=&quot;&quot; init-method=&quot;&quot; destroy-method=&quot;&quot;&gt;
+        &lt;property name=&quot;&quot; value=&quot;&quot; ref=&quot;&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;</code></pre><h2 id="用于创建对象的"><a href="#用于创建对象的" class="headerlink" title="用于创建对象的"></a>用于创建对象的</h2><pre><code>他们的作用就是与xml配置文件中写一个&lt;bean&gt;标签是一样的。
+@Component:
+    作用 ：把当前类对象存入到spring容器中
+    属性：用于指定bean的id，当我们不写时，会用当前类名且首字母小写作为id
+    还需要指定配置文件，修改配置文件的头信息，不再需要bean约束，而是换成context约束
+    然后通过添加context:component-scan标签设置base-package属性然后就会扫描该包下面的所有的类，
+    找到加了@Component的类对象把它添加到spring容器中
+    &lt;context:component-scan base-package=&quot;com.wang&quot;&gt;&lt;/context:component-scan&gt;
+@Controller
+@Service
+@Repository
+    他们三个的作用与属性和@Component完全一样，是spring为我们明确提供三次使用的注解，使我们三层的对象更加清晰</code></pre><h2 id="用于注入数据的"><a href="#用于注入数据的" class="headerlink" title="用于注入数据的"></a>用于注入数据的</h2><pre><code>他们的作用就是与xml配置文件中&lt;bean&gt;标签中的&lt;property&gt;标签是一样的。
+@Autowired
+作用：自动按照类型注入：容器中有唯一一个bean对象类型与要注入的类型相匹配，就可以注入
+容器中没有bean对象类型与要注入的类型相匹配，注入失败
+容器中有多个bean对象类型与要注入的类型相匹配时分为两种情况，第一变量名与其中一个配置的bean对象的id相匹配，就如注入该对象
+如果没有匹配就会注入失败，提示找到了两个多个相匹配的类型
+出现位置：类的成员变量上，或者方法上
+细节：使用注解注入时set方法就不再是必须的
+@Qualifier
+作用：在按照类型注入的基础之上再按照名称注入，它在注入类成员时不可以单独使用，但在注入方法的参数时可以单独使用
+属性：value：用于指定注入bean的id
+@Resource
+作用：直接按照bean的id注入，可以独立使用
+属性：name：用于指定bean的ID
+提示找不到该注解时需要在maven的配置文件中导入依赖，在spring的配置文件中同样需要声明
+&lt;dependency&gt;
+        &lt;groupId&gt;javax.annotation&lt;/groupId&gt;
+        &lt;artifactId&gt;javax.annotation-api&lt;/artifactId&gt;
+        &lt;version&gt;1.2&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;context:annotation-config&gt;&lt;/context:annotation-config&gt;
+以上三个注解只能用于配置的bean类型数据的注入。不能注入基本类型数据
+对于集合类型数据只能通过配置xml文件的形式进行注入，使用注解的方式不可以进行注入
+@Value
+作用：用于注入基本类型数据和String类型数据
+属性：value：用于指定数据的值，可以使用spring的el表达式${表达式} 用于改变作用域的
+scope
+作用：用于指定bean的作用范围
+属性：value：singleton，protoType</code></pre><h2 id="与生命周期相关的"><a href="#与生命周期相关的" class="headerlink" title="与生命周期相关的"></a>与生命周期相关的</h2><pre><code>init-method=&quot;&quot; destroy-method=&quot;&quot;
+@PostConstruct
+    作用：用于指定初始化方法
+@PreDestory
+    作用：用于指定销毁方法</code></pre><h2 id="spring中的新注解"><a href="#spring中的新注解" class="headerlink" title="spring中的新注解"></a>spring中的新注解</h2><pre><code>Configuration
+    作用：指定当前类是一个配置类
+    细节：当配置类作为AnnotationConfigApplicationContext的参数时可以不写
+ComponentScan
+    作用：用于通过注解指定Spring在创建容器时要扫描的包
+    属性：
+        value：和basePackages的作用是一样的，都是用于指定Spring在创建容器时要扫描的包
+            等同于&lt;context:component-scan base-package=&quot;com.wang&quot;&gt;&lt;/context:component-scan&gt;
+Bean
+    作用：把当前方法的返回值作为bean对象存入Spring的ioc容器中          
+    属性：
+        name:用于指定bean的id当不写时默认是当前方法的方法名         细节
+        当我们使用注解配置方法时，如果方法有参数，spring框架会区容器中查找有没有可用的bean对象
+        查找方式和Autowired注解的作用是一样的
+Import（XXX.class）
+    作用：用于指定其他配置类的字节码
+        当我们使用Import的注解之后，有Import的类是父配置类其余是子配置类
+PropertySource
+    用于指定properties文件的位置
+    属性：
+        value：用于指定配置文件的路径
+            classpath:指定为类路径下</code></pre>
           
     
     <div class="page-reward">
@@ -346,18 +413,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/04/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%BB%AA%E8%AE%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/08/JavaSE-%E4%B8%80-%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          数据结构（一）：绪论
+          JavaSE(一)：数据类型
         
       </div>
     </a>
   
   
     <a href="/2020/04/06/spring%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%80%A6%E5%90%88%E4%B8%8EIOC/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">spring(一):程序的耦合与IOC</div>
+      <div class="article-nav-title">spring的核心（一）bean相关知识</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -384,7 +451,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#spring（二）：spring基于注解的IOC"><span class="toc-number">1.</span> <span class="toc-text">spring（二）：spring基于注解的IOC</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#spring（二）：spring基于注解的IOC"><span class="toc-number">1.</span> <span class="toc-text">spring（二）：spring基于注解的IOC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#曾经的xml配置"><span class="toc-number">1.1.</span> <span class="toc-text">曾经的xml配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用于创建对象的"><span class="toc-number">1.2.</span> <span class="toc-text">用于创建对象的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用于注入数据的"><span class="toc-number">1.3.</span> <span class="toc-text">用于注入数据的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与生命周期相关的"><span class="toc-number">1.4.</span> <span class="toc-text">与生命周期相关的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spring中的新注解"><span class="toc-number">1.5.</span> <span class="toc-text">spring中的新注解</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -519,23 +586,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">-javase</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">-mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">-操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">-数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
