@@ -168,6 +168,178 @@
             
 
   
+    <article id="post-并发系列：基础概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/24/%E5%B9%B6%E5%8F%91%E7%B3%BB%E5%88%97%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" target="_blank">并发系列：基础概念</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/24/%E5%B9%B6%E5%8F%91%E7%B3%BB%E5%88%97%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" class="archive-article-date">
+        <time datetime="2020-09-24T03:17:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-24</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+        <h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><h2 id="同步异步"><a href="#同步异步" class="headerlink" title="同步异步"></a>同步异步</h2><p> 这里的异步是狭义上的，操作系统的特性中的异步性是广义上的。<br>同步异步都是用来形容一次方法的调用。<br>不同的是：</p>
+<ul>
+<li><p>同步方法调用一旦开始就必须等待方法的返回然后才能继续后续的行为。</p>
+</li>
+<li><p>异步是指方法一旦调用，会立即返回结果，可以进行后续操作，其中调用的方法是在另一个线程中真是执行的，如果我们需要用到返回结果，那么异步调用真实完成时，则会通知调用者。</p>
+</li>
+<li><p>举个例子 </p>
+<ul>
+<li>这里的同步异步可以类比在实体店购物和网上购物：</li>
+<li>实体店购物时，你（当前进程）必须先找到合适的实体店然后等一系列操作（方法的执行过程）完成后 商品（返回结果）才真正的属于你，才可以做其他事情。</li>
+<li>网上购物时，一旦比选择一个商品，直接付款后商品（返回结果立即返回）就属于你（当前线程立即收到）了，然后你就可以做一些其他的事情，在家等待快递到就可以了（另一个线程执行调用的方法）。快递到了（调用的方法真实执行完成）。<h2 id="并行与并发"><a href="#并行与并发" class="headerlink" title="并行与并发"></a>并行与并发</h2>都表示两个或者多个任务一起执行<ul>
+<li>并发：偏重于多个任务交替执行，而多个任务之间可能还是穿行的（并非真实的同时执行）。</li>
+<li>并行：需要多个或多核处理器，真正意义上的同时执行。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>举个例子：<ul>
+<li>并发：小渣男有多个女朋友，但是每次与女朋友约会的时候是只与一个女朋友约会（上午与女朋友1号约会，下午与女朋友2号约会）</li>
+<li>并行：老渣男也有多个女朋友，只不过与多个女朋友同时约会（上午与女朋友1号和女朋友2号一起约会）<h2 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h2>临界区用来表示一种公共资源或者共享数据，可以被多个线程使用，但是一次只能有一个线程使用它，一旦临界资源被占用，其他线程想要使用他时就必须等待。</li>
+</ul>
+</li>
+<li>举个例子<ul>
+<li>打印机就是一个临界资源，如果有多个进程同时使用打印机，那么就会导致要打印的内容交叉混在一起。<h2 id="阻塞和非阻塞"><a href="#阻塞和非阻塞" class="headerlink" title="阻塞和非阻塞"></a>阻塞和非阻塞</h2>阻塞和非阻塞通常用来形容多线程间的相互影响。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>阻塞：如果一个线程占用了临界资源，那么其他需要该资源的线程就必须在这个临界区等待。等待会导致线程挂起，这种情况就是阻塞。</p>
+</li>
+<li><p>非阻塞：没有一个线程妨碍其他线程执行。所有线程都尝试在不断的前向执行。</p>
+<h2 id="死锁，饥饿和活锁"><a href="#死锁，饥饿和活锁" class="headerlink" title="死锁，饥饿和活锁"></a>死锁，饥饿和活锁</h2><p>都属于多线程的活跃性问题</p>
+</li>
+<li><p>死锁：多个线程彼此之间占用了所需要的临界资源，互相不释放，导致程序无法继续运行。</p>
+</li>
+<li><p>饥饿是指一个线程或者多个线程因为种种原因一直无法获得所需要的资源，导致一直无法执行。</p>
+</li>
+<li><p>活锁：多个线程之间秉承着谦让的原则，主动将资源释放给别的线程使用，资源就会在线程之间来回跳动，而没有一个线程可以同时拿到所有资源正常运行。</p>
+</li>
+<li><p>举个例子</p>
+<ul>
+<li>死锁：小明和小红（两个线程）做作业，都需要笔记本和笔（两个临界资源）（笔记本和笔都是有且只有一个），但是小明拿到了笔，小红拿到了作业本。他们都想要对方手中的东西，但又不愿意放弃自己手中以获取到的，就会导致两个人都无法完成作业。</li>
+<li>饥饿：母鸟喂食，个头大（线程的优先级高）的小鸟会一直抢到事务，而个头小（优先级底）的小鸟会因为一直抢不到食物活活饿死。</li>
+<li>活锁：可以类比两人让路，甲乙两个人迎面走向对方，都想秉着谦让的原则给对方让路，甲和乙同时向左，发现仍然无法前进，然后同时向右，仍无法前进，然后同时向左······一直循环下去会导致两个人一直呆在原地无法前进。</li>
+</ul>
+</li>
+</ul>
+<h2 id="并发的级别"><a href="#并发的级别" class="headerlink" title="并发的级别"></a>并发的级别</h2><h3 id="阻塞（悲观策略）"><a href="#阻塞（悲观策略）" class="headerlink" title="阻塞（悲观策略）"></a>阻塞（悲观策略）</h3><p>一个线程是阻塞的，那么在其他线程释放资源自谦，当前线程无法继续执行。<br>    使用Synchronized关键字或重入锁（<br>ReentrantLock）得到的就是阻塞线程。</p>
+<h3 id="无饥饿"><a href="#无饥饿" class="headerlink" title="无饥饿"></a>无饥饿</h3><p>如果线程之间是有优先级的，那么线程调度的时候总是会倾向于满足高优先级的线程。（不公平的）然后就会导致低优先级的线程一直得不到执行，产生饥饿。（优先级调度算法）<br>公平锁：线程得不到资源时会进入一个阻塞队列，然后等到资源被释放时，会按照先进入队列的先获得资源（先来先服务）。</p>
+<h3 id="无障碍（乐观策略）"><a href="#无障碍（乐观策略）" class="headerlink" title="无障碍（乐观策略）"></a>无障碍（乐观策略）</h3><ul>
+<li><p>无障碍是一种最弱的非阻塞调度，如果两个线程无障碍的执行，都可以访问共享资源。但是有可能会导致数据被改坏。面对这种情况，它就会立即对自己所做的修改进行回滚， 确保数据安全，如果没有数据竞争，线程就会顺利完成工作。</p>
+</li>
+<li><p>如果发生的冲突较多，会导致线程一直回滚，没有一个线程能走出临界区。（需要至少一个线程能在有限步内完成）</p>
+</li>
+<li><p>通过依赖一个“一致性标记”来解决。</p>
+<h3 id="无锁"><a href="#无锁" class="headerlink" title="无锁"></a>无锁</h3><p>无锁的并行都是无障碍的。<br>在无所的情况下，所有的线程都尝试对临界区进行访问，无锁的并发保证必然有一个线程能够在有限步内完成操作离开临界区。</p>
+</li>
+<li><p>有可能出现饥饿。</p>
+<h3 id="无等待"><a href="#无等待" class="headerlink" title="无等待"></a>无等待</h3><p>要求所有的线程都可以在有限步内完成，这样就不会引起饥饿问题。</p>
+</li>
+<li><p>典型结构：RCU：对数据的读可以不加控制，所有的读线程都是无等待的。而在写数据时，先取得原数据的副本，接着只修改副本，之后在合适的时机写回数据。</p>
+<h2 id="与操作系统中的概念类比"><a href="#与操作系统中的概念类比" class="headerlink" title="与操作系统中的概念类比"></a>与操作系统中的概念类比</h2></li>
+<li><p>操作系统的基本特性：</p>
+<ul>
+<li><p>并发：是指在宏观上同一个时间段内，能够同时运行多个程序。</p>
+<ul>
+<li>并行是指在同一时刻能够同时运行多个程序。需要硬件支持。</li>
+</ul>
+</li>
+<li><p>共享：是指操作系统中的资源可以被多个并发进程同时使用。</p>
+<ul>
+<li>互斥共享：在同一时刻只允许一个进程访问，要访问的资源成为临界资源。需要用到同步机制来实现。<ul>
+<li>同时共享：允许多个进程同时访问。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>虚拟：是一个物理实体转换为一个逻辑实体。</p>
+<ul>
+<li>时分复用技术：多个进程能在一个处理器上并发执行，采用了时分复用技术。（时间片轮转）</li>
+<li>空分复用技术：虚拟内存使用了空分复用技术，它将物理内存抽象为地址空间，每个进程都有各自的地址空间。地址空间的页被映射到物理内存，地址空间的页并不需要全部在物理内存中，当使用到一个没有在物理内存的页时，执行页面置换算法，将该页置换到内存中</li>
+</ul>
+</li>
+<li><p>异步：是指进程不是一次性执行完毕，而是以不可预知的方式，不断向前推进。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/24/%E5%B9%B6%E5%8F%91%E7%B3%BB%E5%88%97%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数据结构与算法：二叉搜索树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -197,7 +369,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-        <h1 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h1>
+        <h1 id="二叉搜索树（Binary-Search-Tree）"><a href="#二叉搜索树（Binary-Search-Tree）" class="headerlink" title="二叉搜索树（Binary Search Tree）"></a>二叉搜索树（Binary Search Tree）</h1><p>   使用二叉搜索树对数据进行添加，删除，搜索最坏时间复杂度都是O（logn）。<br>   任意一个节点的值都是大于其左子树所有节点的值。<br>   任意一个节点的值都小于其右子树所有节点的值。<br>   它的左右子树也是一颗二叉搜索树。<br>   二叉搜索树存储的元素必须具有可比较性</p>
+<p>   二叉树没有索引的概念</p>
+
           
     
 
@@ -797,6 +971,10 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">-数据结构</a>
